@@ -26,17 +26,11 @@ in {
         "Programming"
         ".gnupg"
       ];
-      files = [
-        ".config/gh/hosts.yml"
-        ".ssh/known_hosts"
-      ];
       allowOther = true;
     };
 
-    packages = with pkgs; [
-      nixvim
-      glow
-    ];
+    packages = [nixvim];
+
     sessionVariables.EDITOR = "${nixvim}/bin/nvim";
   };
 
