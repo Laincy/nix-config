@@ -7,10 +7,6 @@
         completion = {
           luasnip.enable = true;
         };
-        #        diagnostics = {
-        #          zsh.enable = true;
-        #        };
-
         formatting = {
           alejandra.enable = true;
           stylua.enable = true;
@@ -32,7 +28,8 @@
           {name = "nvim_lsp";}
           {name = "path";}
           {name = "luasnip";}
-          #{name = "clippy";}
+          {name = "conventionalcommits";}
+          {name = "clippy";}
           #{name = "dap";}
         ];
 
@@ -79,13 +76,7 @@
           installRustc = false;
         };
         ts_ls.enable = true;
-        zls = {
-          enable = true;
-          extraOptions = {
-            "enable_build_on_save" = true;
-            "build_on_save_step" = "check";
-          };
-        };
+        zls.enable = true;
       };
 
       keymaps = {
