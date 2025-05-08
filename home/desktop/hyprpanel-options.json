@@ -18,8 +18,38 @@
         "network",
         "bluetooth",
         "battery",
-        "clock",
         "systray",
+        "clock",
+        "notifications"
+      ]
+    },
+    "1": {
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "media"
+      ],
+      "right": [
+        "volume",
+        "clock",
+        "notifications"
+      ]
+    },
+    "2": {
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "media"
+      ],
+      "right": [
+        "volume",
+        "clock",
         "notifications"
       ]
     }
@@ -42,11 +72,11 @@
   "theme.bar.buttons.y_margins": "0.4rem",
   "theme.bar.buttons.radius": "0.3em",
   "theme.bar.layer": "top",
-  "bar.workspaces.show_numbered": false,
+  "bar.workspaces.show_numbered": true,
   "bar.windowtitle.custom_title": true,
   "bar.windowtitle.icon": true,
   "bar.windowtitle.truncation": true,
-  "bar.network.truncation_size": 20,
+  "bar.network.truncation_size": 11,
   "bar.network.label": false,
   "bar.bluetooth.label": false,
   "bar.battery.label": true,
@@ -402,7 +432,7 @@
   "menus.dashboard.shortcuts.left.shortcut1.icon": "󰈹",
   "menus.dashboard.shortcuts.left.shortcut1.tooltip": "Firefox",
   "menus.dashboard.shortcuts.left.shortcut1.command": "firefox",
-  "menus.dashboard.shortcuts.left.shortcut4.command": "wofi --show drun",
+  "menus.dashboard.shortcuts.left.shortcut4.command": "rofi -show drun",
   "notifications.ignore": [
     "spotify"
   ],
@@ -410,5 +440,11 @@
   "theme.osd.orientation": "horizontal",
   "theme.osd.location": "bottom right",
   "theme.osd.muted_zero": true,
-  "theme.osd.margins": "0px 10px 10px 0px"
+  "theme.osd.margins": "0px 10px 10px 0px",
+  "bar.workspaces.monitorSpecific": false,
+  "bar.workspaces.show_icons": false,
+  "bar.workspaces.showAllActive": false,
+  "theme.bar.buttons.workspaces.smartHighlight": true,
+  "menus.transitionTime": 75,
+  "menus.dashboard.stats.enable_gpu": false
 }

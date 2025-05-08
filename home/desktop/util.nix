@@ -8,5 +8,5 @@
     };
   };
 
-  home.file.".cache/ags/hyprpanel/options.json".source = ./hyprpanel-options.json;
+  home.file.".cache/hyprpanel/config.json".source = ./hyprpanel-options.json;
 }

@@ -18,7 +18,10 @@
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
 
     settings = {
-      monitor = ["eDP-1, 2048x1280@120, 0x0, 1.0"];
+      monitor = [
+        "eDP-1, 2048x1280@120, 0x0, 1.0"
+        "HDMI-A-1, 1920x1018@120, 2048x0, 0.8"
+      ];
 
       input.touchpad.natural_scroll = true;
 
