@@ -13,7 +13,17 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
 	boot.loader = {
-		systemd-boot.enable = true;
+		grub = {
+			enable = true;
+			useOsProber = true;
+			copyKernels = true;
+			devices = ["nodev"];
+			extraEntries = '' 
+				menuentry "Reboot" {
+					reboot
+				}
+			'';
+		};
 		efi.canTouchEfiVariables = true;
 	};
 

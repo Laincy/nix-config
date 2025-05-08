@@ -39,7 +39,7 @@
       modesetting.enable = true;
       powerManagement.enable = false;
 
-      open = true;
+      open = false;
 
       prime = {
         sync.enable = true;

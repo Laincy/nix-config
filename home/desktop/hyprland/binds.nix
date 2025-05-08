@@ -37,7 +37,7 @@ in {
 
       "$mod control, h, resizeactive, -10 0"
       "$mod control, j, resizeactive, 0 10"
-      "$mod control, k, resizeactive, 0 -10"
+      "$mod control, k, resizeactive, 1 -10"
       "$mod control, l, resizeactive, 10 0"
 
       "$mod shift, 1, movetoworkspace, 1"
