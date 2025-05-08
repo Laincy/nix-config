@@ -21,6 +21,7 @@
     portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
 
     settings = {
+      ecosystem.no_update_news = true;
       monitor = [
         "eDP-1, 2048x1280@120, 0x0, 1.0"
         "HDMI-A-1, 1920x1080@120, 2048x0, 1.0"
