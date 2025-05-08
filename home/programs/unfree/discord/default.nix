@@ -6,7 +6,7 @@
   home = {
     packages = with pkgs; [
       (discord.override {
-        withOpenASAR = false;
+        withOpenASAR = true;
         withVencord = true;
       })
     ];
@@ -15,8 +15,7 @@
       ".config/discord"
     ];
 
-    file = {
-      ".config/Vencord/themes/rose-pine.theme.css".source = ./rose-pine.css;
+       file = {
       ".config/Vencord/settings/settings.json".source = ./vencord.json;
     };
   };
