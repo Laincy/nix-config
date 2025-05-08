@@ -10,6 +10,7 @@
 
     ./alacritty.nix
     ./firefox.nix
+		./foliate.nix
     ./prism.nix
     ./sober.nix
     ./tmux.nix
