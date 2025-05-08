@@ -22,4 +22,6 @@
     ];
     xdgOpenUsePortal = true;
   };
+
+  services.flatpak.enable = true;
 }

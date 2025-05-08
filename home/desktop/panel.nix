@@ -15,6 +15,7 @@
     hyprland.enable = true;
 
     settings = {
+      terminal = "alacritty";
       layout."bar.layouts"."0" = {
         left = ["dashboard" "workspaces"];
         middle = ["media"];
@@ -30,7 +31,7 @@
         media.show_active_only = true;
       };
       menus = {
-        clock.weather.enabled = false;
+        clock = {weather.enabled = false;};
         dashboard = {
           controls.enabled = true;
           directories.enabled = false;
@@ -45,7 +46,10 @@
               shortcut4.command = "wofi -S drun";
             };
           };
-          powermenu.avatar.image = "${../../assets/bristol.jpg}";
+          powermenu.avatar = {
+            name = "Laincy";
+            image = "${../../assets/bristol.jpg}";
+          };
         };
       };
     };

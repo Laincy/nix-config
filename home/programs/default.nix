@@ -11,6 +11,7 @@
     ./alacritty.nix
     ./firefox.nix
     ./prism.nix
+    ./sober.nix
     ./tmux.nix
     ./wofi.nix
   ];
