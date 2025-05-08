@@ -31,6 +31,7 @@
         launcher.autoDetectIcon = true;
         clock.format = "%a %b %d %I:%M %p";
         media.show_active_only = true;
+				network.truncation = false;
       };
       menus = {
         clock = {weather.enabled = false;};

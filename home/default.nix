@@ -39,4 +39,25 @@ in {
     ];
     sessionVariables.EDITOR = "${nixvim}/bin/nvim";
   };
+
+  stylix.targets.gtk.enable = false;
+
+  gtk = {
+    enable = true;
+
+    theme = {
+      name = "rose-pine";
+      package = pkgs.rose-pine-gtk-theme;
+    };
+
+    cursorTheme = {
+      name = "BreezeX-RosePine-Linux";
+      package = pkgs.rose-pine-cursor;
+    };
+
+    iconTheme = {
+      name = "rose-pine";
+      package = pkgs.rose-pine-icon-theme;
+    };
+  };
 }
