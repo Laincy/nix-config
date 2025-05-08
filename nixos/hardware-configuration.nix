@@ -66,10 +66,4 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   services.xserver.videoDrivers = ["nvidia"];
-
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [
-      "nvidia-x11"
-      "nvidia-settings"
-    ];
 }

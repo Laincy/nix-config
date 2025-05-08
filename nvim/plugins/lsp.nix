@@ -79,7 +79,13 @@
           installRustc = false;
         };
         ts_ls.enable = true;
-        zls.enable = true;
+        zls = {
+          enable = true;
+          extraOptions = {
+            "enable_build_on_save" = true;
+            "build_on_save_step" = "check";
+          };
+        };
       };
 
       keymaps = {

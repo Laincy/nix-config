@@ -1,8 +1,6 @@
 {config, ...}: {
   stylix.targets.starship.enable = false;
 
-  home.file.".config/starship.toml".source = ./rose-pine.toml;
-
   programs = {
     starship = {
       enable = true;

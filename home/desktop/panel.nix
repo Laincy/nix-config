@@ -16,7 +16,7 @@
 
     settings = {
       terminal = "alacritty";
-			notifications.position = "bottom right";
+      notifications.position = "bottom right";
       layout."bar.layouts"."0" = {
         left = ["dashboard" "workspaces"];
         middle = ["media"];

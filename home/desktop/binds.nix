@@ -9,7 +9,7 @@ in {
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
     "$terminal" = "alacritty";
-    "$browser" = config.home.sessionVariables.BROWSER;
+    "$browser" = "firefox";
     bind = [
       "$mod, q, exec, $terminal"
       "$mod, b, exec, $browser"

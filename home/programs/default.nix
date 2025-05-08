@@ -6,13 +6,10 @@
 }: {
   imports = [
     ./unfree
-    ./shell
 
     ./alacritty.nix
     ./firefox.nix
-		./foliate.nix
-    ./prism.nix
-    ./sober.nix
+    ./nushell.nix
     ./tmux.nix
     ./tofi.nix
   ];
@@ -23,7 +20,6 @@
     ];
     packages = [
       self.packages.${pkgs.system}.nvim
-      pkgs.inkscape
     ];
   };
 

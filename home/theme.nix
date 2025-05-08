@@ -17,5 +17,16 @@
       package = pkgs.nerd-fonts.aurulent-sans-mono;
       name = "AurulentSansM Nerd Font Mono";
     };
+
+    targets.gtk.enable = false;
+  };
+
+  gtk = {
+    enable = true;
+
+    theme = {
+      package = pkgs.rose-pine-gtk-theme;
+      name = "rose-pine-gtk";
+    };
   };
 }

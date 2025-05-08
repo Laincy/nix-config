@@ -38,15 +38,16 @@
       "/var/log"
       "/var/lib/bluetooth"
       "/var/lib/nixos"
+      "/var/lib/sbctl"
       "/var/lib/systemd/coredump"
       "/etc/NetworkManager/system-connections"
     ];
     files = [
       "/etc/machine-id"
-      {
-        file = "/var/keys/agekey.txt";
-        parentDirectory = {mode = "u=rwx,g=,o=";};
-      }
     ];
+
+    users.laincy.directories = [];
   };
+
+  programs.fuse.userAllowOther = true;
 }

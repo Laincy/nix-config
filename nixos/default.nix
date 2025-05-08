@@ -1,39 +1,28 @@
 {
+  lib,
   pkgs,
-  inputs,
   ...
 }: {
   imports = [
+    ./explode
+
     ./hardware-configuration.nix
     ./localization.nix
     ./user.nix
-    ./theme.nix
     ./utils.nix
-
-    ./explode
   ];
+
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "nvidia-x11"
+      "nvidia-settings"
+    ];
 
   system.stateVersion = "24.05";
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  boot.loader = {
-    grub = {
-      enable = true;
-      efiSupport = true;
-      useOSProber = true;
-      copyKernels = true;
-      device = "nodev";
-
-      extraEntries = ''
-        menuentry "Firmware Interface" {
-            fwsetup
-        }
-      '';
-    };
-    efi.canTouchEfiVariables = true;
-  };
-
   environment.systemPackages = with pkgs; [
+    sbctl
     git
     vim
   ];
@@ -43,27 +32,15 @@
     networkmanager.enable = true;
   };
 
-  services.greetd = {
-    enable = true;
-    settings = let
-      session = "${inputs.hyprland.packages.${pkgs.system}.hyprland}/bin/Hyprland";
-    in {
-      default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd ${session}";
-        user = "greeter";
-      };
+  boot = {
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/var/lib/sbctl";
     };
+    #loader.efi.canTouchEfiVariables = true;
+    loader.systemd-boot.enable = lib.mkForce false;
   };
 
-  # Audio
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
-    jack.enable = true;
-  };
-  # Cache for Hyprland
   nix.settings = {
     substituters = ["https://hyprland.cachix.org"];
     trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];

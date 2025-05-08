@@ -6,6 +6,7 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     nixvim.url = "github:nix-community/nixvim";
+    lanzaboote.url = "github:nix-community/lanzaboote";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -27,8 +28,6 @@
       url = "github:nix-community/nur-combined?dir=repos/rycee/pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    flatpaks.url = "github:GermanBread/declarative-flatpak/stable-v3";
   };
 
   outputs = {self, ...} @ inputs:
@@ -48,9 +47,10 @@
         specialArgs = {inherit inputs self;};
         modules = [
           ./nixos
-          inputs.stylix.nixosModules.stylix
+          inputs.lanzaboote.nixosModules.lanzaboote
           inputs.disko.nixosModules.default
           inputs.impermanence.nixosModules.impermanence
+          inputs.home-manager.nixosModules.home-manager
         ];
       };
     };
