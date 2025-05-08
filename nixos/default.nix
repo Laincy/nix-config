@@ -19,6 +19,13 @@
       useOSProber = true;
       copyKernels = true;
       devices = ["nodev"];
+
+      extraEntries = ''
+        menuentry "Firmware Interface" {
+            fwsetup
+        }
+      '';
+
     };
     efi.canTouchEfiVariables = true;
   };

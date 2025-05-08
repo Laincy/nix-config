@@ -23,7 +23,4 @@
     xdgOpenUsePortal = true;
   };
 
-  services.ratbagd.enable = true;
-
-  services.flatpak.enable = true;
 }

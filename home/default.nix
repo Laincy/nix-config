@@ -21,10 +21,6 @@
         "Documents"
         "Programming"
         "Pictures"
-
-        # flatpak for roblox lmfao
-        ".local/share/flatpak"
-        ".var/app/org.vinegarhq.Sober"
       ];
       allowOther = true;
     };
