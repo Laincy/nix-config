@@ -4,6 +4,7 @@
     ./localization.nix
     ./user.nix
     ./theme.nix
+		./utils.nix
 
     ./explode
   ];
