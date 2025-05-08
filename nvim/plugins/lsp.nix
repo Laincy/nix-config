@@ -79,6 +79,7 @@
         ts_ls.enable = true;
         zls.enable = true;
         ccls.enable = true;
+				taplo.enable = true;
       };
 
       keymaps = {
