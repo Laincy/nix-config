@@ -8,7 +8,7 @@
     ../common/global
 
     ../common/opts/lanzaboote.nix
-		../common/opts/network-manager.nix
+    ../common/opts/network-manager.nix
     ../common/users/laincy.nix
 
     ./hardware-configuration.nix

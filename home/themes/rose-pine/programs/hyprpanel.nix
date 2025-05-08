@@ -1,3 +1,3 @@
 {...}: {
-	programs.hyprpanel.settings.theme.name = "rose_pine";
+  programs.hyprpanel.settings.theme.name = "rose_pine";
 }

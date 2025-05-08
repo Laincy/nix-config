@@ -1,9 +1,9 @@
 {...}: {
   imports = [
-		./lsp.nix
+    ./lsp.nix
     ./neotree.nix
-		./telescope.nix
-		./treesitter.nix
+    ./telescope.nix
+    ./treesitter.nix
   ];
 
   plugins = {

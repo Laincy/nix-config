@@ -2,7 +2,7 @@
   imports = [
     ./alacritty.nix
     ./tmux.nix
-		./hyprpanel.nix
-		./tofi.nix
+    ./hyprpanel.nix
+    ./tofi.nix
   ];
 }
