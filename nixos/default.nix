@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
     ./localization.nix
@@ -18,14 +22,13 @@
       efiSupport = true;
       useOSProber = true;
       copyKernels = true;
-      devices = ["nodev"];
+      device = "nodev";
 
       extraEntries = ''
         menuentry "Firmware Interface" {
             fwsetup
         }
       '';
-
     };
     efi.canTouchEfiVariables = true;
   };
@@ -34,7 +37,6 @@
     git
     vim
     helvum
-    greetd.tuigreet
   ];
 
   networking = {
@@ -44,10 +46,12 @@
 
   services.greetd = {
     enable = true;
-    settings = {
+    settings = let
+      session = "${inputs.hyprland.packages.${pkgs.system}.hyprland}/bin/Hyprland";
+    in {
       default_session = {
-        user = "laincy";
-        command = "tuigreet --cmd Hyprland -r";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd ${session}";
+        user = "greeter";
       };
     };
   };
