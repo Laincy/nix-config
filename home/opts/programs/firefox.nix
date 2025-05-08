@@ -5,6 +5,7 @@
   ...
 }: let
   username = config.home.username;
+  icons = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps";
 in {
   programs.firefox = {
     enable = true;
@@ -18,7 +19,7 @@ in {
     profiles."${username}" = {
       search = {
         force = true;
-        order = ["google" "Nix Packages" "Noogle"];
+        order = ["google" "Nix Packages" "Nix Options" "Noogle"];
         engines = {
           bing.metaData.hidden = true;
           ddg.metaData.hidden = true;
@@ -40,8 +41,29 @@ in {
               }
             ];
 
-            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+            icon = "${icons}/nix-snowflake.svg";
             definedAliases = ["@np"];
+          };
+
+          "Nix Options" = {
+            urls = [
+              {
+                template = "https://search.nixos.org/options";
+                params = [
+                  {
+                    name = "type";
+                    value = "packages";
+                  }
+                  {
+                    name = "query";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+
+            icon = "${icons}/nix-snowflake.svg";
+            definedAliases = ["@no"];
           };
 
           "Noogle" = {
@@ -56,7 +78,7 @@ in {
                 ];
               }
             ];
-            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake-white.svg";
+            icon = "${icons}/nix-snowflake-white.svg";
             definedAliases = ["@ng"];
           };
         };

@@ -14,8 +14,15 @@ in {
       "wheel"
       "pipewire"
     ];
-    hashedPassword = "$6$NQgk/wiGzQAeuYQ1$r6TMm/d7/p4jonR.gDbTtYhB0lp8ToZLNvFbz0LGJnkGlKYtquOtCDHgD5UfF92.ntHj7RcWpRa3SDupgQhcP1";
+    openssh.authorizedKeys.keyFiles = [../../../home/ssh.pub];
+
+    hashedPasswordFile = config.sops.secrets.user-password.path;
   };
 
   home-manager.users.laincy = import ../../../home/${config.networking.hostName}.nix;
+
+  sops.secrets.user-password = {
+    sopsFile = ../secrets.yaml;
+    neededForUsers = true;
+  };
 }

@@ -1,4 +1,4 @@
-{...}: {
+{inputs, ...}: {
   imports = [
     ./global
     ./themes/rose-pine
@@ -25,4 +25,6 @@
       enabled = true;
     }
   ];
+
+	home.file.".ssh/config".text = "identityFile /run/secrets/user-ssh-key";
 }

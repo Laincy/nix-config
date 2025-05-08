@@ -1,0 +1,17 @@
+keys: 
+  - &primary 7F412370A3C706BB26F8AFD81C8FEA6693FA9114
+  - &hosts:
+    - &verum age167qgcpdvm2ev9hdm4e7lhplj7p73u2jajyjsf3eea046ty8qmclqdaxuq5
+creation_rules:
+  - path_regex: nixos/verum/secrets.yaml$
+    key_groups: 
+    - age: 
+      - *verum
+      pgp:
+      - *primary
+  - path_regex: nixos/common/secrets.yaml$
+    key_groups: 
+    - age: 
+      - *verum
+      pgp:
+      - *primary

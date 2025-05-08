@@ -26,9 +26,11 @@ in {
         "Downloads"
         "Pictures"
         "Programming"
+				".gnupg"
       ];
       files = [
         ".config/gh/hosts.yml"
+				".ssh/known_hosts"
       ];
       allowOther = true;
     };

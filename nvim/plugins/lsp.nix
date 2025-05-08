@@ -30,6 +30,7 @@
           {name = "luasnip";}
           {name = "conventionalcommits";}
           {name = "clippy";}
+					{name = "yaml";}
           #{name = "dap";}
         ];
 

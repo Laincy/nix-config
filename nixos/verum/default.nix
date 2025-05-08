@@ -7,7 +7,7 @@
   imports = [
     ../common/global
 
-    ../common/opts/lanzaboote.nix
+		#   ../common/opts/lanzaboote.nix
     ../common/opts/network-manager.nix
     ../common/users/laincy.nix
 
@@ -43,5 +43,10 @@
       pulse.enable = true;
       jack.enable = true;
     };
+  };
+
+  sops.secrets.user-ssh-key = {
+    sopsFile = ./secrets.yaml;
+    owner = "laincy";
   };
 }

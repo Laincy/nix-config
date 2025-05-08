@@ -11,6 +11,8 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix.url = "github:Mic92/sops-nix";
+
     # Use lelvel dependencies
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -54,15 +56,6 @@
           specialArgs = {inherit inputs self;};
           modules = [
             ./nixos/verum
-          ];
-        };
-
-        # Oracle Ampere Server
-        axiom = nixosSystem {
-          system = "aarch64-linux";
-          specialArgs = {inherit inputs self;};
-          modules = [
-            ./nixos/axiom
           ];
         };
       };
