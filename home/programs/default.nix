@@ -6,10 +6,10 @@
 }: {
   imports = [
     ./unfree
+		./shell
 
     ./alacritty.nix
     ./firefox.nix
-    ./nushell.nix
     ./prism.nix
     ./tmux.nix
   ];
