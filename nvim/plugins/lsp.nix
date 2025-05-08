@@ -30,7 +30,7 @@
           {name = "luasnip";}
           {name = "conventionalcommits";}
           {name = "clippy";}
-					{name = "yaml";}
+          {name = "yaml";}
           #{name = "dap";}
         ];
 
@@ -78,6 +78,7 @@
         };
         ts_ls.enable = true;
         zls.enable = true;
+        ccls.enable = true;
       };
 
       keymaps = {

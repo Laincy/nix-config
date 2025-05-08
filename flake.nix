@@ -1,5 +1,5 @@
 {
-  description = "Various personal Nix configs";
+  description = "Personal NixOS configs";
 
   inputs = {
     # Critical OS level dependencies
@@ -47,17 +47,13 @@
       };
     })
     // {
-      nixosConfigurations = let
-        inherit (nixpkgs.lib) nixosSystem;
-      in {
-        # Lenovo Laptop
-        verum = nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = {inherit inputs self;};
-          modules = [
-            ./nixos/verum
-          ];
-        };
+      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs self;};
+        modules = [
+          inputs.sops-nix.nixosModules.sops
+          ./nixos
+        ];
       };
     };
 }
