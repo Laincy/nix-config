@@ -27,15 +27,19 @@
         ".mozilla"
         ".cache/mozilla"
 
+        # Flatpak
+        ".local/share/flatpak"
+        ".var/app/org.vinegarhq.Sober"
+
         # Spotify state
-        #".config/spotify"
-        #".cache/spotify"
+        ".config/spotify"
+        ".cache/spotify"
 
         # Vesktop State
-        ".config/vesktop"
+        ".config/discord"
 
-				#Minecraft state
-				".local/share/PrismLauncher"
+        #Minecraft state
+        ".local/share/PrismLauncher"
       ];
 
       files = [
@@ -53,14 +57,16 @@
     packages = [
       (inputs.hyprpanel.packages.${pkgs.system}.default)
       pkgs.ripgrep
-      pkgs.obsidian
+      pkgs.spotify
       (inputs.prismlauncher.packages.${pkgs.system}.prismlauncher)
     ];
   };
 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
-      "obsidian"
+      "spotify"
+      "discord"
+			"obsidian"
     ];
 
   gtk = {

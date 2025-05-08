@@ -8,11 +8,9 @@
 
   filesystem.filteredItems = {
     hideGitignored = false;
-    alwaysShow = [
-      ".gitignore"
-      ".env"
-      ".luarc.json"
-      ".stylua.toml"
+		hideDotfiles = false;
+    neverShow = [
+      ".git"
     ];
   };
 }

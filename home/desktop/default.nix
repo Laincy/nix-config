@@ -20,7 +20,7 @@
     settings = {
       monitor = [
         "eDP-1, 2048x1280@120, 0x0, 1.0"
-        "HDMI-A-1, 1920x1080@120, 2048x0, 0.8"
+        "HDMI-A-1, 1920x1080@120, 2048x0, 1.0"
       ];
 
       input.touchpad.natural_scroll = true;

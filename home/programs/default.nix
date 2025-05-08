@@ -7,6 +7,7 @@
     ./git
     ./discord
     ./nixvim
+		./obsidian.nix
   ];
 
   programs = {

@@ -1,7 +1,8 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    vesktop
+    (discord.override {
+      withOpenASAR = false;
+      withVencord = true;
+    })
   ];
-
-  home.file.".config/vesktop/settings/settings.json".source = ./settings.json;
 }

@@ -39,4 +39,10 @@
   trouble.enable = true;
 
   markview = import ./markview.nix;
+
+	dap.enable = true;
+	dap-ui.enable = true;
+	dap-lldb.enable = true;
+
+	presence-nvim.enable = true;
 }

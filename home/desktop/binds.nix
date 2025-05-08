@@ -62,6 +62,7 @@ in {
       "$mod control, 8, moveworkspacetomonitor, 8 current"
       "$mod control, 9, moveworkspacetomonitor, 9 current"
       "$mod control, 0, moveworkspacetomonitor, 10 current"
+			", mouse:276, pass, class:^(discord)$"
     ];
 
     bindle = [

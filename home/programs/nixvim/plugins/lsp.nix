@@ -11,6 +11,7 @@
     lua_ls.enable = true;
     zls.enable = true;
 		marksman.enable = true;
+		wgsl_analyzer.enable = true;
   };
 
   keymaps = {
