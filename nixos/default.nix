@@ -11,10 +11,16 @@
   system.stateVersion = "24.05";
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
+	boot.loader = {
+		systemd-boot.enable = true;
+		efi.canTouchEfiVariables = true;
+	};
+
   environment.systemPackages = with pkgs; [
     git
     vim
     helvum
+		greetd.tuigreet
   ];
 
   networking = {
@@ -27,7 +33,7 @@
     settings = {
       default_session = {
         user = "laincy";
-        command = "${pkgs.greetd.tuigreet} --cmd Hyprland -r";
+        command = "tuigreet --cmd Hyprland -r";
       };
     };
   };
