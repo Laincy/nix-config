@@ -3,7 +3,7 @@
     (import ./disko.nix {device = "/dev/nvme0n1";})
   ];
 
-	security.sudo.extraConfig = ''Defaults  lecture="never"'';
+  security.sudo.extraConfig = ''Defaults  lecture="never"'';
 
   boot.initrd.postDeviceCommands = lib.mkAfter ''
     	mkdir /btrfs_tmp

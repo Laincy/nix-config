@@ -30,10 +30,8 @@
       EDITOR = "nvim";
       TERM = "alacritty";
       BROWSER = "firefox";
-      MENU_CMD = "${pkgs.wofi}/bin/wofi -S drun";
     };
   };
-
 
   gtk = {
     enable = true;

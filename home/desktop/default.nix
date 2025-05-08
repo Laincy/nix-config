@@ -5,11 +5,14 @@
   ...
 }: {
   imports = [
-		./binds.nix
-		inputs.hyprpanel.homeManagerModules.hyprpanel
-	];
+    ./binds.nix
+    ./panel.nix
+  ];
 
-  home.sessionVariables.NIXOS_OZONE_WL = 1;
+  home.sessionVariables = {
+    NIXOS_OZONE_WL = 1;
+    GRIMBLAST_HIDE_CURSOR = 1;
+  };
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -23,7 +26,7 @@
         "HDMI-A-1, 1920x1080@120, 2048x0, 1.0"
       ];
 
-			input.touchpad.natural_scroll = true;
+      input.touchpad.natural_scroll = true;
 
       general = {
         layout = "master";
@@ -40,45 +43,6 @@
       preload = ["${config.stylix.image}"];
       wallpaper = ["${config.stylix.image}"];
       splasjh = false;
-    };
-  };
-
-  programs.hyprpanel = {
-    enable = true;
-    systemd.enable = false;
-    overlay.enable = true;
-    hyprland.enable = true;
-
-    theme = "rose_pine";
-
-    layout."bar.layouts"."0" = {
-      left = ["dashboard" "workspaces"];
-      middle = ["media"];
-      right = ["volume" "network" "bluetooth" "battery" "systray" "clock" "notifications"];
-    };
-
-    settings = {
-      bar = {
-        workspaces.show_numbered = true;
-        launcher.autoDetectIcon = true;
-        clock.format = "%a %b %d %I:%M %p";
-      };
-      menus.dashboard = {
-        controls.enabled = false;
-        directories.enabled = false;
-        shortcuts = {
-          left = {
-            shortcut1 = {
-              icon = "";
-              command = "firefox";
-              tooltip = "Firefox";
-            };
-            shortcut2.command = "spotify";
-            shortcut4.command = config.home.sessionVariables.MENU_CMD;
-          };
-        };
-        powermenu.avatar.image = "${../../assets/bristol.jpg}";
-      };
     };
   };
 }

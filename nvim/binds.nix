@@ -9,7 +9,7 @@
 
     {
       action = ":Neotree filesystem toggle left<CR>";
-			key = "<C-n>";
+      key = "<C-n>";
     }
 
     {

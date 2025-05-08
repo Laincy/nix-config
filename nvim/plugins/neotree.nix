@@ -6,7 +6,7 @@
     window.width = 30;
 
     filesystem.filteredItems = {
-			hideGitignored = false;
+      hideGitignored = false;
       hideDotfiles = false;
       neverShow = [".git"];
     };

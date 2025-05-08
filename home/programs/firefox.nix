@@ -23,5 +23,5 @@ in {
     ".cache/mozilla"
   ];
 
-	stylix.targets.firefox.profileNames = ["${username}"];
+  stylix.targets.firefox.profileNames = ["${username}"];
 }

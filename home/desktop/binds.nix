@@ -1,12 +1,16 @@
-{pkgs, config, ...}: let
+{
+  pkgs,
+  config,
+  ...
+}: let
   brightness = "${pkgs.brightnessctl}/bin/brightnessctl";
   av_device = "@DEFAULT_AUDIO_SINK@";
 in {
   wayland.windowManager.hyprland.settings = {
-		"$mod" = "SUPER";
-		"$terminal" = "alacritty";
-		"$browser" = config.home.sessionVariables.BROWSER;
-		"$menu" = config.home.sessionVariables.MENU_CMD;
+    "$mod" = "SUPER";
+    "$terminal" = "alacritty";
+    "$browser" = config.home.sessionVariables.BROWSER;
+    "$menu" = "wofi -S drun";
     bind = [
       "$mod, q, exec, $terminal"
       "$mod, r, exec, $menu"
@@ -66,6 +70,8 @@ in {
       "$mod control, 9, moveworkspacetomonitor, 9 current"
       "$mod control, 0, moveworkspacetomonitor, 10 current"
       ", mouse:276, pass, class:^(discord)$"
+
+      ", code:248, exec, bash -c \"${pkgs.grimblast}/bin/grimblast copysave area ~/Pictures/$(date +%Y-%m-%d_%H-%M-%S).png\""
     ];
 
     bindle = [

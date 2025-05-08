@@ -6,12 +6,13 @@
 }: {
   imports = [
     ./unfree
-		./shell
+    ./shell
 
     ./alacritty.nix
     ./firefox.nix
     ./prism.nix
     ./tmux.nix
+    ./wofi.nix
   ];
 
   home = {

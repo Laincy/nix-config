@@ -6,7 +6,7 @@
     baseIndex = 1;
     shortcut = "a";
 
-		terminal = "alacritty";
+    terminal = "alacritty";
 
     plugins = with pkgs.tmuxPlugins; [
       rose-pine

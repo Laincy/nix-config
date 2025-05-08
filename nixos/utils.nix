@@ -22,5 +22,4 @@
     ];
     xdgOpenUsePortal = true;
   };
-
 }
