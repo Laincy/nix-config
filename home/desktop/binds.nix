@@ -74,5 +74,10 @@ in {
       ",XF86MonBrightnessUp, exec, ${brightness} set 5%+"
       ",XF86MonBrightnessDown, exec, ${brightness} set 5%-"
     ];
+
+		bindm = [
+			"$mod, mouse:272, movewindow"
+			"$mod, mouse:273, resizewindow"
+		];
   };
 }
