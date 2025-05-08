@@ -8,6 +8,7 @@
       installCargo = false;
       installRustc = false;
     };
+		zls.enable = true;
   };
 
   keymaps = {

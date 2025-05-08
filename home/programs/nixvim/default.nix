@@ -28,6 +28,7 @@
 
     extraConfigLua = ''
       vim.o.termguicolors = true
+			vim.g.zig_fmt_parse_errors = 0
     '';
   };
 }
