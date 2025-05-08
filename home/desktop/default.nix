@@ -23,6 +23,9 @@ in {
 
   home.sessionVariables.GRIMBLAST_HIDE_CURSOR = 1;
 
+  stylix.targets.hyprland.enable = false;
+  stylix.targets.hyprpaper.enable = false;
+
   wayland.windowManager.hyprland = {
     enable = true;
 
@@ -36,11 +39,17 @@ in {
         "HDMI-A-1, 1920x1080@120, 2048x0, 1.0"
       ];
 
+      misc.disable_hyprland_logo = true;
+
       input.touchpad.natural_scroll = true;
 
       general = {
         layout = "master";
-        border_size = 2;
+
+        "col.active_border" = "rgb(c4a7e7)";
+        "col.inactive_border" = "rgb(6e6a86)";
+
+        border_size = 3;
       };
 
       decoration.rounding = 0;
@@ -50,8 +59,8 @@ in {
   services.hyprpaper = {
     enable = true;
     settings = {
-      preload = ["${config.stylix.image}"];
-      wallpaper = ["${config.stylix.image}"];
+      preload = ["${../../assets/outing.jpg}"];
+      wallpaper = [",${../../assets/outing.jpg}"];
       splash = false;
     };
   };
