@@ -34,8 +34,6 @@ in {
     sessionVariables.EDITOR = "${nixvim}/bin/nvim";
   };
 
-  stylix.targets.gtk.enable = false;
-
   gtk = {
     enable = true;
 
@@ -54,4 +52,6 @@ in {
       package = pkgs.rose-pine-icon-theme;
     };
   };
+
+  stylix.autoEnable = false;
 }

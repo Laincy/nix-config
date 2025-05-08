@@ -1,6 +1,4 @@
 {pkgs, ...}: {
-  stylix.targets.tmux.enable = false;
-
   programs.tmux = {
     enable = true;
     baseIndex = 1;

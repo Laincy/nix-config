@@ -23,9 +23,6 @@ in {
 
   home.sessionVariables.GRIMBLAST_HIDE_CURSOR = 1;
 
-  stylix.targets.hyprland.enable = false;
-  stylix.targets.hyprpaper.enable = false;
-
   wayland.windowManager.hyprland = {
     enable = true;
 

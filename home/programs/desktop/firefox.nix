@@ -95,6 +95,4 @@ in {
   home.persistence."/persist/home/${username}".directories = [
     ".mozilla/firefox/${username}"
   ];
-
-  stylix.targets.firefox.profileNames = ["${username}"];
 }
