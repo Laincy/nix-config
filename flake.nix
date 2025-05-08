@@ -18,11 +18,11 @@
 
     nixvim.url = "github:nix-community/nixvim";
 
-		# Important to the rice and general utility, not critical
+    # Important to the rice and general utility, not critical
     stylix.url = "github:danth/stylix";
 
-		# removed because it was breaking, hopefully bring back later
-		#   hyprland.url = "github:hyprwm/Hyprland?submodules=1";
+    # removed because it was breaking, hopefully bring back later
+    #   hyprland.url = "github:hyprwm/Hyprland?submodules=1";
 
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
 
@@ -30,6 +30,8 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    prismlauncher.url = "github:PrismLauncher/PrismLauncher";
   };
 
   outputs = {

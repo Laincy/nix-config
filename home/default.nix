@@ -33,7 +33,7 @@
       EDITOR = "nvim";
       TERM = "alacritty";
     };
-
+		
   };
 
   gtk = {

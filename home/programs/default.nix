@@ -1,4 +1,4 @@
-{lib, ...}: {
+{lib, pkgs,...}: {
   imports = [
     ./obsidian.nix
     ./alacritty.nix
@@ -8,8 +8,10 @@
     ./nushell.nix
     ./spotify.nix
     ./tmux.nix
+		./chrome.nix
 
 		./nixvim
+		./prism.nix
   ];
 
 
@@ -18,10 +20,15 @@
       "discord"
 			"spotify"
 			"obsidian"
+			"google-chrome"
     ];
 
   programs = {
     btop.enable = true;
     wofi.enable = true;
   };
+
+	home.packages = with pkgs; [
+		inkscape
+	];
 }

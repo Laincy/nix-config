@@ -3,17 +3,15 @@
   config,
   ...
 }: {
+  # Literally just for school and work related things
+
   home = {
     packages = with pkgs; [
-      (discord.override {
-        withOpenASAR = false;
-        withVencord = true;
-      })
+      google-chrome
     ];
 
     persistence."/persist/home/${config.home.username}".directories = [
-      ".config/discord"
-			".config/Vencord"
+      ".config/google-chrome"
     ];
   };
 }
