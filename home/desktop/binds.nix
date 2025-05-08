@@ -8,8 +8,13 @@ in {
       "$mod, r, exec, $menu"
       "$mod, b, exec, $browser"
 
+      "$mod, f, fullscreen"
       "$mod, c, killactive"
-      "$mod, l, exit"
+			#"$mod, l, exit"
+			
+			"$mod, m, layoutmsg, swapwithmaster"
+      "$mod, v, togglefloating"
+
       "$mod, 1, workspace, 1"
       "$mod, 2, workspace, 2"
       "$mod, 3, workspace, 3"
@@ -23,10 +28,20 @@ in {
 
       "$mod, h, movefocus, l"
       "$mod, j, movefocus, d"
-      "$mod, l, movefocus, r"
       "$mod, k, movefocus, u"
+      "$mod, l, movefocus, r"
 
-      "$mod SHIFT, 1, movetoworkspace, 1"
+      "$mod + shift, h, movewindow, l"
+      "$mod + shift, j, movewindow, d"
+      "$mod + shift, k, movewindow, u"
+      "$mod + shift, l, movewindow, r"
+
+      "$mod + control, h, resizeactive, -10 0"
+      "$mod + control, j, resizeactive, 0 10"
+      "$mod + control, k, resizeactive, 0 -10"
+      "$mod + control, l, resizeactive, 10 0"
+
+			"$mod SHIFT, 1, movetoworkspace, 1"
       "$mod SHIFT, 2, movetoworkspace, 2"
       "$mod SHIFT, 3, movetoworkspace, 3"
       "$mod SHIFT, 4, movetoworkspace, 4"

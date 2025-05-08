@@ -36,6 +36,8 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    prismlauncher.url = "github:PrismLauncher/PrismLauncher";
   };
 
   outputs = {

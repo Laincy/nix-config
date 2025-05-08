@@ -11,6 +11,8 @@
     alwaysShow = [
       ".gitignore"
       ".env"
+      ".luarc.json"
+      ".stylua.toml"
     ];
   };
 }

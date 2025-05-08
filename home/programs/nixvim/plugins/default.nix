@@ -38,5 +38,5 @@
 
   trouble.enable = true;
 
-  markview.enable = true;
+  markview = import ./markview.nix;
 }

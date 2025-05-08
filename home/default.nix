@@ -2,6 +2,7 @@
   config,
   inputs,
   pkgs,
+  lib,
   ...
 }: {
   imports = [
@@ -22,16 +23,19 @@
         "Programming"
         "Media"
 
-        # Firefox State
+        # Firefox state
         ".mozilla"
         ".cache/mozilla"
 
-        # Spotify State
+        # Spotify state
         #".config/spotify"
         #".cache/spotify"
 
         # Vesktop State
         ".config/vesktop"
+
+				#Minecraft state
+				".local/share/PrismLauncher"
       ];
 
       files = [
@@ -50,8 +54,15 @@
       #(inputs.nixvim.packages.${pkgs.system}.default)
       (inputs.hyprpanel.packages.${pkgs.system}.default)
       pkgs.ripgrep
+      pkgs.obsidian
+      (inputs.prismlauncher.packages.${pkgs.system}.prismlauncher)
     ];
   };
+
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "obsidian"
+    ];
 
   gtk = {
     enable = true;

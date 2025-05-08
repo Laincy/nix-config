@@ -8,7 +8,9 @@
       installCargo = false;
       installRustc = false;
     };
-		zls.enable = true;
+    lua_ls.enable = true;
+    zls.enable = true;
+		marksman.enable = true;
   };
 
   keymaps = {

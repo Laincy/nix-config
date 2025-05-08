@@ -28,6 +28,8 @@
     git
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
   # Display Manager
   services.greetd = {
     enable = true;
