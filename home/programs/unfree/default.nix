@@ -1,7 +1,6 @@
 {lib, ...}: {
   imports = [
-    ./discord
-
+    ./discord.nix
     ./google-chrome.nix
     ./obsidian.nix
     ./spotify.nix

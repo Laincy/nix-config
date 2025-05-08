@@ -23,6 +23,8 @@
     hyprland.url = "github:hyprwm/hyprland";
     hyprpanel.url = "github:Jas-SinghFSU/hyprpanel";
 
+    nixcord.url = "github:kaylorben/nixcord";
+
     firefox-addons = {
       # Only using this URL because my school blocks Gitlab
       # TODO: Change back to GitLab once I graduate highschool

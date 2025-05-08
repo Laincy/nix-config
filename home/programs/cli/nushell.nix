@@ -1,4 +1,8 @@
 {config, ...}: {
+  stylix.targets = {
+    nushell.enable = true;
+    starship.enable = true;
+  };
   programs = {
     starship = {
       enable = true;

@@ -52,6 +52,5 @@ in {
       package = pkgs.rose-pine-icon-theme;
     };
   };
-
   stylix.autoEnable = false;
 }
