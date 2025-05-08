@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   services.gvfs.enable = true;
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
@@ -14,12 +18,12 @@
       ];
     };
     extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
+      inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
     ];
     xdgOpenUsePortal = true;
   };
 
   services.ratbagd.enable = true;
 
-	services.flatpak.enable = true;
+  services.flatpak.enable = true;
 }

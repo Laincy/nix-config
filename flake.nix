@@ -21,8 +21,7 @@
     # Important to the rice and general utility, not critical
     stylix.url = "github:danth/stylix";
 
-    # removed because it was breaking, hopefully bring back later
-    #   hyprland.url = "github:hyprwm/Hyprland?submodules=1";
+  	hyprland.url = "github:hyprwm/Hyprland?submodules=1";
 
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
 
