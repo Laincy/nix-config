@@ -21,13 +21,10 @@
     nixvim.url = "github:nix-community/nixvim";
 
     stylix.url = "github:danth/stylix";
+
     hyprland = {
       url = "github:hyprwm/Hyprland?submodules=1";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
     };
 
     hyprpanel = {

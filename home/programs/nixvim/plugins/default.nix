@@ -35,4 +35,6 @@
   treesitter = import ./treesitter.nix;
 
 	trouble.enable = true;
+
+	markview.enable = true;
 }
