@@ -1,4 +1,8 @@
-{...}: {
+{config, ...}: {
+  home.persistence."/persist/home/${config.home.username}".files = [
+    ".config/gh/hosts.yml"
+  ];
+
   programs.git = {
     enable = true;
 

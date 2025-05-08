@@ -1,5 +1,4 @@
-{pkgs, inputs, ...}: {
-  # Hyprpanel Dependencies
+{pkgs, ...}: {
   services.gvfs.enable = true;
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
@@ -7,8 +6,6 @@
   # Make GTK work
   programs.dconf.enable = true;
 
-  #Sober roblox
-  services.flatpak.enable = true;
   xdg.portal = {
     enable = true;
     config = {
@@ -17,10 +14,12 @@
       ];
     };
     extraPortals = [
-    	pkgs.xdg-desktop-portal-gtk
-		];
-		xdgOpenUsePortal = true;
+      pkgs.xdg-desktop-portal-gtk
+    ];
+    xdgOpenUsePortal = true;
   };
 
-	services.ratbagd.enable = true;
+  services.ratbagd.enable = true;
+
+	services.flatpak.enable = true;
 }

@@ -2,12 +2,11 @@
   config,
   inputs,
   pkgs,
-  lib,
   ...
 }: {
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
-    ./desktop
+    ./desktop/hyprland
     ./programs
   ];
 
@@ -21,30 +20,11 @@
         "Downloads"
         "Documents"
         "Programming"
-        "Media"
+        "Pictures"
 
-        # Firefox state
-        ".mozilla"
-        ".cache/mozilla"
-
-        # Flatpak
+        # flatpak for roblox lmfao
         ".local/share/flatpak"
         ".var/app/org.vinegarhq.Sober"
-
-        # Spotify state
-        ".config/spotify"
-        ".cache/spotify"
-
-        # Vesktop State
-        ".config/discord"
-
-        #Minecraft state
-        ".local/share/PrismLauncher"
-      ];
-
-      files = [
-        ".config/gh/hosts.yml"
-        ".config/sops/age/keys.txt"
       ];
       allowOther = true;
     };
@@ -54,20 +34,7 @@
       TERM = "alacritty";
     };
 
-    packages = [
-      (inputs.hyprpanel.packages.${pkgs.system}.default)
-      pkgs.ripgrep
-      pkgs.spotify
-      (inputs.prismlauncher.packages.${pkgs.system}.prismlauncher)
-    ];
   };
-
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [
-      "spotify"
-      "discord"
-			"obsidian"
-    ];
 
   gtk = {
     enable = true;

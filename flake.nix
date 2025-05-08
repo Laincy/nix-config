@@ -9,17 +9,16 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    sops-nix.url = "github:Mic92/sops-nix";
-    impermanence.url = "github:nix-community/impermanence";
 
+    impermanence.url = "github:nix-community/impermanence";
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Important to the rice and general utility, not critical
     nixvim.url = "github:nix-community/nixvim";
 
+		# Important to the rice and general utility, not critical
     stylix.url = "github:danth/stylix";
 
     hyprland = {
@@ -36,8 +35,6 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    prismlauncher.url = "github:PrismLauncher/PrismLauncher";
   };
 
   outputs = {

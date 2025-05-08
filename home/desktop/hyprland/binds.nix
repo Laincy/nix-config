@@ -9,7 +9,6 @@ in {
       "$mod, b, exec, $browser"
 
       "$mod, c, killactive"
-      #"$mod, l, exit"
 
       "$mod, f, fullscreen"
       "$mod, m, layoutmsg, swapwithmaster"
@@ -62,7 +61,7 @@ in {
       "$mod control, 8, moveworkspacetomonitor, 8 current"
       "$mod control, 9, moveworkspacetomonitor, 9 current"
       "$mod control, 0, moveworkspacetomonitor, 10 current"
-			", mouse:276, pass, class:^(discord)$"
+      ", mouse:276, pass, class:^(discord)$"
     ];
 
     bindle = [
@@ -76,9 +75,9 @@ in {
       ",XF86MonBrightnessDown, exec, ${brightness} set 5%-"
     ];
 
-		bindm = [
-			"$mod, mouse:272, movewindow"
-			"$mod, mouse:273, resizewindow"
-		];
+    bindm = [
+      "$mod, mouse:272, movewindow"
+      "$mod, mouse:273, resizewindow"
+    ];
   };
 }

@@ -1,14 +1,24 @@
-{...}: {
+{lib, ...}: {
   imports = [
-    ./tmux
-    ./nushell
-    ./alacritty
-    ./firefox
-    ./git
-    ./discord
-    ./nixvim
-		./obsidian.nix
+    ./obsidian.nix
+    ./alacritty.nix
+    ./discord.nix
+    ./firefox.nix
+    ./git.nix
+    ./nushell.nix
+    ./spotify.nix
+    ./tmux.nix
+
+		./nixvim
   ];
+
+
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "discord"
+			"spotify"
+			"obsidian"
+    ];
 
   programs = {
     btop.enable = true;

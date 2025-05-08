@@ -4,12 +4,14 @@
   ...
 }: {
   imports = [
-    ./util.nix
+    ./utils.nix
     ./binds.nix
   ];
 
-  home.sessionVariables = {
-    NIXOS_OZONE_WL = 1;
+  home = {
+    sessionVariables = {
+      NIXOS_OZONE_WL = 1;
+    };
   };
 
   wayland.windowManager.hyprland = {
@@ -39,7 +41,6 @@
         rounding = 0;
       };
 
-      exec-once = ["${inputs.hyprpanel.packages.${pkgs.system}.default}/bin/hyprpanel"];
     };
   };
 }
