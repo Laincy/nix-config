@@ -21,9 +21,14 @@
     # Important to the rice and general utility, not critical
     stylix.url = "github:danth/stylix";
 
-  	hyprland.url = "github:hyprwm/Hyprland?submodules=1";
+    hyprland.url = "github:hyprwm/Hyprland";
 
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+
+    rose-pine-hyprcursor = {
+      url = "github:ndom91/rose-pine-hyprcursor";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";

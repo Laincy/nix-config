@@ -1,4 +1,4 @@
-{...}: {
+{config, ...}: {
   programs = {
     starship = {
       enable = true;
@@ -16,6 +16,7 @@
     nushell = {
       enable = true;
       extraConfig = ''
+				$env.editor = "${config.home.sessionVariables.editor}"
         let carapace_completer = {|spans|
            carapace $spans.0 nushell $spans | from json
            }

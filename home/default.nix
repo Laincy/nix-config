@@ -30,8 +30,8 @@
     };
 
     sessionVariables = {
-      EDITOR = "nvim";
-      TERM = "alacritty";
+      editor = "nvim";
+      term = "alacritty";
     };
 		
   };

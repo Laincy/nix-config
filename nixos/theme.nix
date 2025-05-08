@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, inputs, ...}: {
   stylix = {
     enable = true;
 
@@ -8,9 +8,9 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
 
     cursor = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Original-Classic";
-      size = 20;
+      package = inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default;
+      name = "rose-pine-hyprcursor";
+      size = 24;
     };
 
     fonts.monospace = {
