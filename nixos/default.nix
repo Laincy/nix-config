@@ -37,7 +37,7 @@
       enable = true;
       pkiBundle = "/var/lib/sbctl";
     };
-    #loader.efi.canTouchEfiVariables = true;
+
     loader.systemd-boot.enable = lib.mkForce false;
   };
 

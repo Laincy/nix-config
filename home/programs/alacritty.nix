@@ -1,4 +1,4 @@
-{...}: {
+{lib, ...}: {
   programs.alacritty = {
     enable = true;
     settings = {
@@ -10,7 +10,7 @@
         };
       };
 
-      colors = {
+      colors = lib.mkForce {
         primary = {
           foreground = "#e0def4";
           background = "#191724";
@@ -95,5 +95,4 @@
       };
     };
   };
-  stylix.targets.alacritty.enable = false;
 }
