@@ -12,12 +12,14 @@
   programs.firefox = {
     enable = true;
 
-    profiles.laincy = {
-      extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
+    profiles."${config.home.username}"= {
+      extensions.packages = with inputs.firefox-addons.packages.${pkgs.system}; [
         ublock-origin
         bitwarden
         darkreader
       ];
     };
   };
+
+  stylix.targets.firefox.profileNames = ["${config.home.username}"];
 }
