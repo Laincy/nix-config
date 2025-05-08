@@ -18,7 +18,8 @@
     };
 
     # Important to the rice and general utility, not critical
-    nixvim-config.url = "./nixvim/flake.nix";
+    nixvim.url = "github:nix-community/nixvim";
+
     stylix.url = "github:danth/stylix";
     hyprland = {
       url = "github:hyprwm/Hyprland?submodules=1";

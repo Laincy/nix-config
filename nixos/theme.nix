@@ -14,7 +14,7 @@
     };
 
     fonts.monospace = {
-      package = pkgs.nerdfonts.override {fonts = ["AurulentSansMono"];};
+      package = pkgs.nerd-fonts.aurulent-sans-mono;
       name = "AurulentSansM Nerd Font Mono";
     };
   };

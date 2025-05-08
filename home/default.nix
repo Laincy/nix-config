@@ -42,12 +42,12 @@
     };
 
     sessionVariables = {
-      EDITOR = "neovim";
-      TERM = config.prefs.terminal;
+      EDITOR = "nvim";
+      TERM = "alacritty";
     };
 
     packages = [
-      (inputs.nixvim-config.packages.${pkgs.system}.default)
+			#(inputs.nixvim.packages.${pkgs.system}.default)
       (inputs.hyprpanel.packages.${pkgs.system}.default)
       pkgs.ripgrep
     ];
@@ -58,12 +58,5 @@
 
     iconTheme.name = "Adwaita";
     iconTheme.package = pkgs.adwaita-icon-theme;
-  };
-
-  prefs = {
-    terminal = "alacritty";
-    editor = "nvim";
-    browser = "firefox";
-    menu = "wofi -S drun";
   };
 }

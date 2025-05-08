@@ -5,7 +5,8 @@
     ./firefox
     ./git
     ./discord
-  ];
+  	./nixvim
+	];
 
   programs = {
     btop.enable = true;

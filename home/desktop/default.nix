@@ -1,13 +1,12 @@
 {
   pkgs,
-  config,
   inputs,
   ...
 }: {
   imports = [
     ./util.nix
-  	./binds.nix
-	];
+    ./binds.nix
+  ];
 
   home.sessionVariables = {
     NIXOS_OZONE_WL = 1;
@@ -24,9 +23,9 @@
       input.touchpad.natural_scroll = true;
 
       "$mod" = "SUPER";
-      "$terminal" = config.prefs.terminal;
-      "$menu" = config.prefs.menu;
-      "$browser" = config.prefs.browser;
+      "$terminal" = "alacritty";
+      "$menu" = "wofi -S drun";
+      "$browser" = "firefox";
 
       general = {
         layout = "master";

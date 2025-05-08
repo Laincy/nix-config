@@ -1,4 +1,4 @@
-{config, ...}: {
+{...}: {
   programs.git = {
     enable = true;
 
@@ -17,7 +17,6 @@
       version = "1";
       git_protocol = "https";
       prompt = "enabled";
-      editor = config.prefs.editor;
     };
   };
 }

@@ -1,5 +1,5 @@
 {pkgs, ...}: let
-	brightness = "${pkgs.brightnessctl}/bin/brightnessctl";
+  brightness = "${pkgs.brightnessctl}/bin/brightnessctl";
   av_device = "@DEFAULT_AUDIO_SINK@";
 in {
   wayland.windowManager.hyprland.settings = {
@@ -39,13 +39,13 @@ in {
     ];
 
     bindle = [
-			# Audio
+      # Audio
       ",XF86AudioMute, exec, wpctl set-mute ${av_device} toggle"
       ",XF86AudioRaiseVolume, exec, wpctl set-volume ${av_device} 5%+ -l 1.0"
       ",XF86AudioLowerVolume, exec, wpctl set-volume ${av_device} 5%-"
 
-			# Brightness
-			",XF86MonBrightnessUp, exec, ${brightness} set 5%+"
+      # Brightness
+      ",XF86MonBrightnessUp, exec, ${brightness} set 5%+"
       ",XF86MonBrightnessDown, exec, ${brightness} set 5%-"
     ];
   };
