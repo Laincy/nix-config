@@ -32,9 +32,11 @@
 
   telescope = import ./telescope.nix;
 
+  tmux-navigator.enable = true;
+
   treesitter = import ./treesitter.nix;
 
-	trouble.enable = true;
+  trouble.enable = true;
 
-	markview.enable = true;
+  markview.enable = true;
 }

@@ -3,6 +3,5 @@
     vesktop
   ];
 
-	
-	home.file.".config/vesktop/settings/settings.json".source = ./settings.json;
+  home.file.".config/vesktop/settings/settings.json".source = ./settings.json;
 }

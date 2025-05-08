@@ -1,12 +1,13 @@
 {...}: {
   imports = [
+    ./tmux
     ./nushell
     ./alacritty
     ./firefox
     ./git
     ./discord
-  	./nixvim
-	];
+    ./nixvim
+  ];
 
   programs = {
     btop.enable = true;

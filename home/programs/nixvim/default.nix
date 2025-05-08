@@ -5,12 +5,12 @@
 }: {
   imports = [inputs.nixvim.homeManagerModules.nixvim];
 
-	stylix.targets.nixvim.enable = false;
+  stylix.targets.nixvim.enable = false;
 
   programs.nixvim = {
     enable = true;
 
-		defaultEditor = true;
+    defaultEditor = true;
 
     extraPackages = with pkgs; [
       ripgrep
@@ -25,5 +25,9 @@
     globalOpts = import ./opts.nix;
 
     plugins = import ./plugins;
+
+    extraConfigLua = ''
+      vim.o.termguicolors = true
+    '';
   };
 }

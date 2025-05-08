@@ -47,7 +47,7 @@
     };
 
     packages = [
-			#(inputs.nixvim.packages.${pkgs.system}.default)
+      #(inputs.nixvim.packages.${pkgs.system}.default)
       (inputs.hyprpanel.packages.${pkgs.system}.default)
       pkgs.ripgrep
     ];
