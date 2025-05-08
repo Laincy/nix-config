@@ -50,12 +50,12 @@
       open = false;
 
       prime = {
-        sync.enable = true;
+        sync.enable = false;
 
-        #offload = {
-        #  enable = lib.mkOverride 990 true;
-        #  enableOffloadCmd = true;
-        #};
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
 
         intelBusId = "PCI:0:2:0";
         nvidiaBusId = "PCI:1:0:0";
