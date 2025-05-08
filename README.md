@@ -1,3 +1,2 @@
 # Laincy's Dotfiles
-
-Just a simple NixOs setup meant primarily for development and general use. Meant to be kept clean, typically I keep dev dependencies in a project specific flake to reduce clutter and conflicts. If you're going to use this on your own, I'd suggest large amounts of refactoring to the ./nix/ folder as this is where all of my device specific configurations are, other than that it should just require rescaling of things depending on your screen's resolution.
+A simple NixOS configuration, primarily meant for development and general use. Should be relatively extensible, if you're going to use this focus on changing things in the [nixos](./nixos) directory and some monitor specific settings elsewhere.

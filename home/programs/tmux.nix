@@ -1,23 +1,22 @@
 {pkgs, ...}: {
-	stylix.targets.tmux.enable = false;
+  stylix.targets.tmux.enable = false;
 
-	programs.tmux = {
-		enable = true;
-		baseIndex = 1;
+  programs.tmux = {
+    enable = true;
+    baseIndex = 1;
+    shortcut = "a";
 
-		terminal = "tmux-256color";
+		terminal = "alacritty";
 
-		shortcut = "a";
+    plugins = with pkgs.tmuxPlugins; [
+      rose-pine
+      sensible
+      vim-tmux-navigator
+    ];
 
-		plugins = with pkgs.tmuxPlugins; [
-			rose-pine
-			sensible
-			vim-tmux-navigator
-		];
-
-		extraConfig = ''
-			set -ag terminal-overrides ",xterm-256color:RGB"
-		'';
-	};
+    extraConfig = ''
+      set -g default-terminal "$TERM"
+      set -ag terminal-overrides ",$TERM:Tc"
+    '';
+  };
 }
-

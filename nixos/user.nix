@@ -1,6 +1,7 @@
 {
-  pkgs,
   inputs,
+  pkgs,
+  self,
   ...
 }: {
   imports = [
@@ -16,13 +17,11 @@
   };
 
   home-manager = {
-    extraSpecialArgs = {inherit inputs;};
+    extraSpecialArgs = {inherit inputs self;};
     users.laincy = import ../home;
   };
 
   programs.fuse.userAllowOther = true;
 
-  environment.persistence."/persist".users.laincy = {
-    directories = [];
-  };
+  environment.persistence."/persist".users.laincy.directories = [];
 }

@@ -6,7 +6,7 @@
 }: {
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
-    ./desktop/hyprland
+    ./desktop
     ./programs
   ];
 
@@ -17,25 +17,30 @@
 
     persistence."/persist/home/${config.home.username}" = {
       directories = [
-        "Downloads"
         "Documents"
-        "Programming"
+        "Downloads"
         "Pictures"
+        "Programming"
       ];
+
       allowOther = true;
     };
 
     sessionVariables = {
-      editor = "nvim";
-      term = "alacritty";
+      EDITOR = "nvim";
+      TERM = "alacritty";
+      BROWSER = "firefox";
+      MENU_CMD = "${pkgs.wofi}/bin/wofi -S drun";
     };
-		
   };
+
 
   gtk = {
     enable = true;
 
-    iconTheme.name = "Adwaita";
-    iconTheme.package = pkgs.adwaita-icon-theme;
+    iconTheme = {
+      name = "Adwitia";
+      package = pkgs.adwaita-icon-theme;
+    };
   };
 }

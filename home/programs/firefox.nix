@@ -1,18 +1,15 @@
 {
-  pkgs,
-  inputs,
   config,
+  inputs,
+  pkgs,
   ...
-}: {
-  home.persistence."/persist/home/${config.home.username}".directories = [
-    ".mozilla"
-    ".cache/mozilla"
-  ];
-
+}: let
+  username = config.home.username;
+in {
   programs.firefox = {
     enable = true;
 
-    profiles."${config.home.username}"= {
+    profiles."${username}" = {
       extensions.packages = with inputs.firefox-addons.packages.${pkgs.system}; [
         ublock-origin
         bitwarden
@@ -21,5 +18,10 @@
     };
   };
 
-  stylix.targets.firefox.profileNames = ["${config.home.username}"];
+  home.persistence."/persist/home/${username}".directories = [
+    ".mozilla"
+    ".cache/mozilla"
+  ];
+
+	stylix.targets.firefox.profileNames = ["${username}"];
 }

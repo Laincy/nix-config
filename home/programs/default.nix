@@ -1,34 +1,48 @@
-{lib, pkgs,...}: {
+{
+  config,
+  pkgs,
+  self,
+  ...
+}: {
   imports = [
-    ./obsidian.nix
-    ./alacritty.nix
-    ./discord.nix
-    ./firefox.nix
-    ./git.nix
-    ./nushell.nix
-    ./spotify.nix
-    ./tmux.nix
-		./chrome.nix
+    ./unfree
 
-		./nixvim
-		./prism.nix
+    ./alacritty.nix
+    ./firefox.nix
+    ./nushell.nix
+    ./prism.nix
+    ./tmux.nix
   ];
 
-
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [
-      "discord"
-			"spotify"
-			"obsidian"
-			"google-chrome"
+  home = {
+    persistence."/persist/home/${config.home.username}".files = [
+      ".config/gh/hosts.yml"
     ];
-
-  programs = {
-    btop.enable = true;
-    wofi.enable = true;
+    packages = [
+      self.packages.${pkgs.system}.nvim
+      pkgs.inkscape
+    ];
   };
 
-	home.packages = with pkgs; [
-		inkscape
-	];
+  programs = {
+    git = {
+      enable = true;
+
+      extraConfig.init.defaultBranch = "main";
+
+      userName = "laincy";
+      userEmail = "laincy@proton.me";
+    };
+
+    gh = {
+      enable = true;
+
+      settings = {
+        version = "1";
+        git_protocol = "https";
+        prompt = "enabled";
+      };
+    };
+    btop.enable = true;
+  };
 }

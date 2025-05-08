@@ -36,7 +36,6 @@
   environment.systemPackages = with pkgs; [
     git
     vim
-    helvum
   ];
 
   networking = {

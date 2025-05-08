@@ -1,4 +1,4 @@
-{pkgs, inputs, ...}: {
+{pkgs, ...}: {
   stylix = {
     enable = true;
 
@@ -8,7 +8,7 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
 
     cursor = {
-      package = inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default;
+      package = pkgs.rose-pine-hyprcursor;
       name = "rose-pine-hyprcursor";
       size = 24;
     };

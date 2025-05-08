@@ -1,17 +1,13 @@
 {
-  pkgs,
   config,
+  pkgs,
   ...
 }: {
-
   home = {
-    packages = with pkgs; [
-      spotify
-    ];
+    packages = with pkgs; [obsidian];
 
     persistence."/persist/home/${config.home.username}".directories = [
-      ".config/spotify"
-      ".cache/spotify"
+      ".config/obsidian/"
     ];
   };
 }
