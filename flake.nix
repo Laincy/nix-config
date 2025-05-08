@@ -28,7 +28,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+    flatpaks.url = "github:GermanBread/declarative-flatpak/stable-v3";
   };
 
   outputs = {self, ...} @ inputs:

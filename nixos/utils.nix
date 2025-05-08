@@ -1,6 +1,5 @@
 {
   pkgs,
-  inputs,
   ...
 }: {
   services.gvfs.enable = true;
@@ -8,20 +7,15 @@
   services.upower.enable = true;
 
   # Make GTK work
-  programs.dconf.enable = true;
+	# programs.dconf.enable = false;
 
   xdg.portal = {
     enable = true;
-    config = {
-      common.default = [
+    config.common.default = [
         "gtk"
       ];
-    };
-    extraPortals = [
-      inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
-    ];
+		extraPortals = with pkgs; [xdg-desktop-portal-gtk];
     xdgOpenUsePortal = true;
   };
-
   services.flatpak.enable = true;
 }

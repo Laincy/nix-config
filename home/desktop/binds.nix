@@ -10,10 +10,8 @@ in {
     "$mod" = "SUPER";
     "$terminal" = "alacritty";
     "$browser" = config.home.sessionVariables.BROWSER;
-    "$menu" = "wofi -S drun";
     bind = [
       "$mod, q, exec, $terminal"
-      "$mod, r, exec, $menu"
       "$mod, b, exec, $browser"
 
       "$mod, c, killactive"
@@ -38,16 +36,6 @@ in {
       "$mod, k, movefocus, u"
       "$mod, l, movefocus, r"
 
-      "$mod shift, h, movewindow, l"
-      "$mod shift, j, movewindow, d"
-      "$mod shift, k, movewindow, u"
-      "$mod shift, l, movewindow, r"
-
-      "$mod control, h, resizeactive, -10 0"
-      "$mod control, j, resizeactive, 0 10"
-      "$mod control, k, resizeactive, 1 -10"
-      "$mod control, l, resizeactive, 10 0"
-
       "$mod shift, 1, movetoworkspace, 1"
       "$mod shift, 2, movetoworkspace, 2"
       "$mod shift, 3, movetoworkspace, 3"
@@ -69,9 +57,16 @@ in {
       "$mod control, 8, moveworkspacetomonitor, 8 current"
       "$mod control, 9, moveworkspacetomonitor, 9 current"
       "$mod control, 0, moveworkspacetomonitor, 10 current"
-      ", mouse:276, pass, class:^(discord)$"
 
       ", code:248, exec, bash -c \"${pkgs.grimblast}/bin/grimblast copysave area ~/Pictures/$(date +%Y-%m-%d_%H-%M-%S).png\""
+    ];
+
+    bindi = [
+      ", mouse:276, pass, class:^(discord)$"
+    ];
+
+    bindr = [
+      "$mod, r, exec, pkill wofi || wofi -S drun"
     ];
 
     bindle = [
@@ -79,6 +74,16 @@ in {
       ",XF86AudioMute, exec, wpctl set-mute ${av_device} toggle"
       ",XF86AudioRaiseVolume, exec, wpctl set-volume ${av_device} 5%+ -l 1.0"
       ",XF86AudioLowerVolume, exec, wpctl set-volume ${av_device} 5%-"
+
+      "$mod shift, h, movewindow, l"
+      "$mod shift, j, movewindow, d"
+      "$mod shift, k, movewindow, u"
+      "$mod shift, l, movewindow, r"
+
+      "$mod control, h, resizeactive, -10 0"
+      "$mod control, j, resizeactive, 0 10"
+      "$mod control, k, resizeactive, 1 -10"
+      "$mod control, l, resizeactive, 10 0"
 
       # Brightness
       ",XF86MonBrightnessUp, exec, ${brightness} set 5%+"

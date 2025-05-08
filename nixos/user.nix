@@ -18,6 +18,10 @@
 
   home-manager = {
     extraSpecialArgs = {inherit inputs self;};
+    sharedModules = [
+      inputs.flatpaks.homeManagerModules.declarative-flatpak
+      inputs.impermanence.nixosModules.home-manager.impermanence
+    ];
     users.laincy = import ../home;
   };
 

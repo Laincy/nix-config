@@ -5,7 +5,6 @@
   ...
 }: {
   imports = [
-    inputs.impermanence.nixosModules.home-manager.impermanence
     ./desktop
     ./programs
   ];
@@ -32,7 +31,21 @@
       BROWSER = "firefox";
     };
   };
-
+	
+  xdg.portal = {
+    enable = true;
+    config = {
+      common.default = [
+        "gtk"
+      ];
+    };
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
+    ];
+    xdgOpenUsePortal = true;
+  };
+  stylix.targets.gtk.flatpakSupport.enable = false;
   gtk = {
     enable = true;
 
