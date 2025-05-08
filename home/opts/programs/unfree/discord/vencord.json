@@ -1,5 +1,5 @@
 {
-    "autoUpdate": false,
+    "autoUpdate": true,
     "autoUpdateNotification": true,
     "useQuickCss": false,
     "themeLinks": [],

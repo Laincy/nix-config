@@ -6,7 +6,7 @@
   home = {
     packages = with pkgs; [
       (discord.override {
-        withOpenASAR = true;
+        withOpenASAR = false;
         withVencord = true;
       })
     ];
