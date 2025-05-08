@@ -43,7 +43,7 @@
                 tooltip = "Firefox";
               };
               shortcut2.command = "spotify";
-              shortcut4.command = "wofi -S drun";
+              shortcut4.command = "tofi-drun";
             };
           };
           powermenu.avatar = {

@@ -31,7 +31,7 @@
       BROWSER = "firefox";
     };
   };
-	
+
   xdg.portal = {
     enable = true;
     config = {

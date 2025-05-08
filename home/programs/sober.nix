@@ -19,11 +19,11 @@
         "xdg-run/discord-ipc-0"
       ];
 
-			sockets = [
-				"!wayland"
-				"!fallback-x11"
-				"x11"
-			];
+      sockets = [
+        "!wayland"
+        "!fallback-x11"
+        "x11"
+      ];
     };
   };
 

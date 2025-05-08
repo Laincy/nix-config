@@ -35,6 +35,10 @@
       };
 
       decoration.rounding = 0;
+
+      layerrule = [
+        "noanim, ^(launcher)$"
+      ];
     };
   };
 

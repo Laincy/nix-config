@@ -15,7 +15,7 @@
       ".config/discord"
     ];
 
-       file = {
+    file = {
       ".config/Vencord/settings/settings.json".source = ./vencord.json;
     };
   };

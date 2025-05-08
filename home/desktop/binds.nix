@@ -66,7 +66,7 @@ in {
     ];
 
     bindr = [
-      "$mod, r, exec, pkill wofi || wofi -S drun"
+      "$mod, r, exec, pkill tofi || tofi-drun"
     ];
 
     bindle = [

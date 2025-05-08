@@ -13,7 +13,7 @@
     ./prism.nix
     ./sober.nix
     ./tmux.nix
-    ./wofi.nix
+    ./tofi.nix
   ];
 
   home = {
