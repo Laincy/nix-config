@@ -4,7 +4,6 @@
   inputs = {
     # Critical OS level dependencies
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
     lanzaboote.url = "github:nix-community/lanzaboote";
     impermanence.url = "github:nix-community/impermanence";
     disko = {
@@ -31,30 +30,39 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-
   outputs = {
     self,
     nixpkgs,
     ...
-  } @ inputs:
-    inputs.flake-utils.lib.eachDefaultSystem (system: let
+  } @ inputs: let
+    systems = [
+      "aarch64-linux"
+      "i686-linux"
+      "x86_64-linux"
+      "aarch64-darwin"
+      "x86_64-darwin"
+    ];
+
+    forAllSystems = nixpkgs.lib.genAttrs systems;
+  in {
+    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+
+    packages = forAllSystems (system: let
       pkgs = nixpkgs.legacyPackages.${system};
     in {
-      formatter = pkgs.alejandra;
-
-      packages.nvim = inputs.nixvim.legacyPackages.${system}.makeNixvimWithModule {
+      nvim = inputs.nixvim.legacyPackages.${system}.makeNixvimWithModule {
         inherit pkgs;
         module = ./nvim;
       };
-    })
-    // {
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {inherit inputs self;};
-        modules = [
-          inputs.sops-nix.nixosModules.sops
-          ./nixos
-        ];
-      };
+    });
+
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {inherit inputs self;};
+      modules = [
+        inputs.sops-nix.nixosModules.sops
+        ./nixos
+      ];
     };
+  };
 }
