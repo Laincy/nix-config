@@ -19,7 +19,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim.url = "github:nix-community/nixvim";
-    stylix.url = "github:danth/stylix";
     hyprland.url = "github:hyprwm/hyprland";
     hyprpanel.url = "github:Jas-SinghFSU/hyprpanel";
 

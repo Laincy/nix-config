@@ -1,6 +1,4 @@
 {lib, ...}: {
-  stylix.targets.alacritty.enable = true;
-
   programs.alacritty = {
     enable = true;
     settings = {
@@ -8,6 +6,16 @@
         x = 5;
         y = 5;
       };
+
+      font = {
+        size = 12;
+
+        normal = {
+          family = "AurulentSansM Nerd Font Mono";
+          style = "Regular";
+        };
+      };
+
       colors = lib.mkForce {
         primary = {
           foreground = "#e0def4";

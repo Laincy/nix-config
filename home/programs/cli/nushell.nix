@@ -13,7 +13,7 @@
     nushell = {
       enable = true;
       extraConfig = ''
-            $env.editor = "${config.home.sessionVariables.EDITOR}"
+        $env.editor = "${config.home.sessionVariables.EDITOR}"
         $env.GPG_TTY = (tty)
             let carapace_completer = {|spans| carapace $spans.0 nushell $spans | from json}
             $env.config = {

@@ -11,6 +11,15 @@ in {
     ./panel.nix
   ];
 
+  home.pointerCursor = {
+    package = pkgs.rose-pine-hyprcursor;
+    name = "rose-pine-hyprcursor";
+    size = 24;
+
+    gtk.enable = true;
+    x11.enable = true;
+  };
+
   xdg.portal = {
     enable = true;
     config.common.default = ["gtk"];

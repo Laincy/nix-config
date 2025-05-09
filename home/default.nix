@@ -52,5 +52,11 @@ in {
       package = pkgs.rose-pine-icon-theme;
     };
   };
-  stylix.autoEnable = false;
+
+  fonts.fontconfig.enable = true;
+
+  dconf = {
+    enable = true;
+    settings."org/gnome/desktop/interface".colorscheme = "prefer-dark";
+  };
 }
