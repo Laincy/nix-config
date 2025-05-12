@@ -6,21 +6,21 @@
   lib,
   ...
 }: {
-  imports = [
-    inputs.impermanence.nixosModules.impermanence
-  ];
+  imports = [inputs.impermanence.nixosModule];
 
   environment.persistence."/persist" = {
     files = ["/etc/machine-id"];
     directories = [
       "/var/lib/systemd"
       "/var/log"
+			"/var/lib/sbctl"
       "/var/lib/nixos"
       "/var/lib/bluetooth"
       "/etc/NetworkManager/system-connections"
       "/var/lib/systemd/coredump"
     ];
   };
+
   programs.fuse.userAllowOther = true;
 
   boot.initrd.postDeviceCommands = lib.mkAfter ''

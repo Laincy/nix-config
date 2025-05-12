@@ -11,6 +11,7 @@
           alejandra.enable = true;
           stylua.enable = true;
           mdformat.enable = true;
+					prettier.enable = true;
         };
       };
     };
@@ -76,10 +77,10 @@
           installCargo = false;
           installRustc = false;
         };
-        ts_ls.enable = true;
         zls.enable = true;
         ccls.enable = true;
-				taplo.enable = true;
+        taplo.enable = true;
+        cssls.enable = true;
       };
 
       keymaps = {

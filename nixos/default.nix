@@ -5,13 +5,13 @@
   ...
 }: {
   imports = [
-    ./hardware-configuration.nix
     ./disk-config.nix
-    ./lanzaboote.nix
-    ./localization.nix
+    ./hardware-config.nix
     ./persist.nix
-    ./theme.nix
     ./user.nix
+
+    # May need to be removed on first install
+    ./secureboot.nix
   ];
 
   networking = {
@@ -19,14 +19,12 @@
     networkmanager.enable = true;
   };
 
-  environment = {
-    systemPackages = with pkgs; [
-      sops
-      git
-      vim
-      sbctl
-    ];
-  };
+  environment.systemPackages = with pkgs; [
+    git
+    vim
+    sbctl
+    sops
+  ];
 
   sops = {
     defaultSopsFormat = "yaml";
@@ -38,43 +36,38 @@
     };
   };
 
-  users.mutableUsers = false;
+  boot.loader = {
+    efi.canTouchEfiVariables = lib.mkDefault true;
+    systemd-boot.enable = lib.mkDefault true;
+  };
 
-  nix.settings = {
-    experimental-features = ["nix-command" "flakes"];
-    substituters = [
-      "https://nix-community.cachix.org"
-      "https://hyprland.cachix.org"
-    ];
-    trusted-public-keys = [
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-    ];
+  time.timeZone = "America/New_York";
+
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_US.UTF-8";
+    LC_IDENTIFICATION = "en_US.UTF-8";
+    LC_MEASUREMENT = "en_US.UTF-8";
+    LC_MONETARY = "en_US.UTF-8";
+    LC_NAME = "en_US.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
+    LC_PAPER = "en_US.UTF-8";
+    LC_TELEPHONE = "en_US.UTF-8";
+    LC_TIME = "en_US.UTF-8";
+  };
+
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
   };
 
   security.rtkit.enable = true;
 
   services = {
-    gvfs.enable = true;
-    power-profiles-daemon.enable = true;
-    upower.enable = true;
-
-    greetd = {
-      enable = true;
-      settings.default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd ${inputs.hyprland.packages.${pkgs.system}.hyprland}/bin/Hyprland";
-      };
-    };
-
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      pulse.enable = true;
-      jack.enable = true;
-    };
-
     openssh = {
       enable = true;
+
       settings = {
         PasswordAuthentication = false;
         PermitRootLogin = "no";
@@ -89,18 +82,24 @@
     };
   };
 
-  programs.gnupg.agent = {
+  services.pipewire = {
     enable = true;
-    pinentryPackage = pkgs.pinentry-curses;
-    enableSSHSupport = true;
+    alsa.enable = true;
+    pulse.enable = true;
+    jack.enable = true;
   };
 
+  nixpkgs.overlays = [inputs.niri.overlays.niri];
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
       "nvidia-x11"
       "nvidia-settings"
+      "discord"
+      "google-chrome"
+      "obsidian"
+      "spotify"
     ];
 
-  # DO NOT TOUCH
+  nix.settings.experimental-features = ["nix-command" "flakes"];
   system.stateVersion = "24.05";
 }

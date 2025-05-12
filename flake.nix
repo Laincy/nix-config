@@ -1,27 +1,27 @@
 {
-  description = "Personal NixOS configs";
+  description = "Laincy's personal NixOS configs";
 
   inputs = {
-    # Critical OS level dependencies
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixvim.url = "github:nix-community/nixvim";
     lanzaboote.url = "github:nix-community/lanzaboote";
     impermanence.url = "github:nix-community/impermanence";
+    sops-nix.url = "github:Mic92/sops-nix";
+
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    sops-nix.url = "github:Mic92/sops-nix";
 
-    # Use lelvel dependencies
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixvim.url = "github:nix-community/nixvim";
-    hyprland.url = "github:hyprwm/hyprland";
-    hyprpanel.url = "github:Jas-SinghFSU/hyprpanel";
 
-    nixcord.url = "github:kaylorben/nixcord";
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     firefox-addons = {
       # Only using this URL because my school blocks Gitlab
@@ -30,6 +30,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
+
   outputs = {
     self,
     nixpkgs,
@@ -61,6 +62,7 @@
       specialArgs = {inherit inputs self;};
       modules = [
         inputs.sops-nix.nixosModules.sops
+        inputs.niri.nixosModules.niri
         ./nixos
       ];
     };

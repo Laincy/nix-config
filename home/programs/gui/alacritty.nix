@@ -2,6 +2,7 @@
   programs.alacritty = {
     enable = true;
     settings = {
+			window.dynamic_title = false;
       window.padding = {
         x = 5;
         y = 5;

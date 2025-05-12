@@ -1,10 +1,8 @@
 {...}: {
   imports = [
-    ./ssh.nix
     ./git.nix
     ./nushell.nix
+    ./ssh.nix
     ./tmux.nix
   ];
-
-  programs.btop.enable = true;
 }

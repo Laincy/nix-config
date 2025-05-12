@@ -1,21 +1,24 @@
 {
   config,
   inputs,
-  self,
   pkgs,
+  self,
   ...
 }: let
   nixvim = self.packages.${pkgs.system}.nvim;
 in {
   imports = [
-    inputs.impermanence.nixosModules.home-manager.impermanence
+    inputs.impermanence.homeManagerModules.default
 
-    ./desktop
+		./desktop
     ./programs
+    ./theme.nix
   ];
+
   home = {
     username = "laincy";
     homeDirectory = "/home/${config.home.username}";
+
     stateVersion = "24.05";
 
     persistence."/persist${config.home.homeDirectory}" = {
@@ -32,31 +35,5 @@ in {
     packages = [nixvim];
 
     sessionVariables.EDITOR = "${nixvim}/bin/nvim";
-  };
-
-  gtk = {
-    enable = true;
-
-    theme = {
-      name = "rose-pine";
-      package = pkgs.rose-pine-gtk-theme;
-    };
-
-    cursorTheme = {
-      name = "BreezeX-RosePine-Linux";
-      package = pkgs.rose-pine-cursor;
-    };
-
-    iconTheme = {
-      name = "rose-pine";
-      package = pkgs.rose-pine-icon-theme;
-    };
-  };
-
-  fonts.fontconfig.enable = true;
-
-  dconf = {
-    enable = true;
-    settings."org/gnome/desktop/interface".colorscheme = "prefer-dark";
   };
 }
