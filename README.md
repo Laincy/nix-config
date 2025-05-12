@@ -4,7 +4,7 @@ Collection of my NixOS configurations for my own devices. Not intended to be ver
 
 - `assets`: Images that I use in config (Bristol says hi!)
 - `home`: Home-manager configurations
-  - `desktop`: Desktop environment, currently [Hyprland](https://hyprland.org/)
+  - `desktop`: Desktop environment, currently [Niri](https://github.com/YaLTeR/niri)
   - `programs`: Program configurations
     - `cli`: Command line programs (ie. git, ssh)
     - `desktop`: Programs that run on a DE (ie. Firefox)

@@ -6,7 +6,7 @@
 }: {
   imports = [
     ./disk-config.nix
-    ./hardware-config.nix
+    ./hardware-configuration.nix
     ./persist.nix
     ./user.nix
 
@@ -87,6 +87,13 @@
     alsa.enable = true;
     pulse.enable = true;
     jack.enable = true;
+  };
+
+  services.greetd = {
+    enable = true;
+    settings.default_session = {
+      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd ${pkgs.niri-stable}/bin/niri";
+    };
   };
 
   nixpkgs.overlays = [inputs.niri.overlays.niri];
