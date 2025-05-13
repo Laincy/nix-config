@@ -10,7 +10,7 @@
       extraConfig = ''
         $env.editor = "${config.home.sessionVariables.EDITOR}"
         $env.GPG_TTY = (tty)
-				$env.config.show_banner = false
+        $env.config.show_banner = false
       '';
     };
   };

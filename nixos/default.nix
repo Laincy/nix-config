@@ -92,7 +92,7 @@
   services.greetd = {
     enable = true;
     settings.default_session = {
-      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd ${pkgs.niri-stable}/bin/niri";
+      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd ${pkgs.niri-stable}/bin/niri-session";
     };
   };
 
@@ -106,6 +106,24 @@
       "obsidian"
       "spotify"
     ];
+
+  services.flatpak.enable = true;
+
+  xdg.portal = {
+    enable = true;
+
+    xdgOpenUsePortal = true;
+
+    config.common.default = [
+      "gtk"
+      "gnome"
+    ];
+
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-gnome
+    ];
+  };
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
   system.stateVersion = "24.05";

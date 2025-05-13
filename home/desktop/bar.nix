@@ -11,7 +11,7 @@
 
         modules-left = ["custom/nixos" "niri/workspaces" "niri/window"];
         #modules-center = ["mpd"];`
-        modules-right = ["pulseaudio" "backlight" "battery"];
+        modules-right = ["clock" "pulseaudio" "backlight" "battery"];
 
         "niri/workspaces" = {
           disable-scroll = true;
