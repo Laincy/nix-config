@@ -13,8 +13,8 @@
     };
 
     iconTheme = {
-      name = "rose-pine-icons";
-      package = pkgs.rose-pine-icon-theme;
+      name = "adwaita";
+      package = pkgs.adwaita-icon-theme;
     };
   };
 

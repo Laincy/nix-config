@@ -11,17 +11,10 @@
   programs.nixcord = {
     enable = true;
     openASAR.enable = false;
-    quickCss = ''
-      body {
-       		--font: 'AurulentSansM Nerd Font Mono';
-       		--font-display: 'AurulentSansM Nerd Font Mono';
-       		--font-code: 'AurulentSansM Nerd Font Mono';
-      }
-    '';
     config = {
-      useQuickCss = true;
+      useQuickCss = false;
       frameless = true;
-      enabledThemes = ["system24-rose-pine.theme.css"];
+      enabledThemes = ["midnight-rose-pine.theme.css"];
 
       plugins = {
         alwaysExpandRoles.enable = true;
@@ -92,13 +85,13 @@
       ".config/discord"
     ];
 
-    file.".config/Vencord/themes/system24-rose-pine.theme.css".source =
+    file.".config/Vencord/themes/midnight-rose-pine.theme.css".source =
       pkgs.fetchFromGitHub {
         owner = "refact0r";
-        repo = "system24";
-        rev = "2e662212b48d29d9e70a5304d66e8ffbc8ca4b0d";
-        hash = "sha256-UpGHyPL+uPZi/G6uy/Vua3b1k2nxTs1HnMUnohGsgaw=";
+        repo = "midnight-discord";
+        rev = "6f727783935069c02b8a84985f3bd55a38982533";
+        hash = "sha256-XoYfZdz07P6b7p7DZLiArFG4LNlDghrUK32uQtzvkjo=";
       }
-      + "/theme/flavors/system24-rose-pine.theme.css";
+      + "/themes/flavors/midnight-rose-pine.theme.css";
   };
 }

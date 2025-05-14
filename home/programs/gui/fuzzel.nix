@@ -18,7 +18,7 @@
         border = "#c4a7e7ff";
       };
 
-			border.width = 3;
+      border.width = 3;
     };
   };
 }

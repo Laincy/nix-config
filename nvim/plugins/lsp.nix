@@ -11,7 +11,7 @@
           alejandra.enable = true;
           stylua.enable = true;
           mdformat.enable = true;
-					prettier.enable = true;
+          prettier.enable = true;
         };
       };
     };
@@ -81,6 +81,7 @@
         ccls.enable = true;
         taplo.enable = true;
         cssls.enable = true;
+        gopls.enable = true;
       };
 
       keymaps = {

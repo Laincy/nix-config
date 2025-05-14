@@ -10,7 +10,7 @@ in {
   imports = [
     inputs.impermanence.homeManagerModules.default
 
-		./desktop
+    ./desktop
     ./programs
     ./theme.nix
   ];
@@ -28,11 +28,14 @@ in {
         "Pictures"
         "Programming"
         ".gnupg"
+
+        ".cache/shotwell"
+        ".local/share/shotwell"
       ];
       allowOther = true;
     };
 
-    packages = [nixvim];
+    packages = with pkgs; [nixvim shotwell];
 
     sessionVariables.EDITOR = "${nixvim}/bin/nvim";
   };

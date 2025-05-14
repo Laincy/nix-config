@@ -1,7 +1,7 @@
 {...}: {
-	imports = [
-		./cli
-		./gui
-		./unfree
-	];
+  imports = [
+    ./cli
+    ./gui
+    ./unfree
+  ];
 }

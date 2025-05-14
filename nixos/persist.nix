@@ -13,7 +13,7 @@
     directories = [
       "/var/lib/systemd"
       "/var/log"
-			"/var/lib/sbctl"
+      "/var/lib/sbctl"
       "/var/lib/nixos"
       "/var/lib/bluetooth"
       "/etc/NetworkManager/system-connections"

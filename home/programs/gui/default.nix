@@ -1,8 +1,8 @@
 {...}: {
   imports = [
     ./alacritty.nix
-		./firefox.nix
-		./fuzzel.nix
-		./sober.nix
+    ./firefox.nix
+    ./fuzzel.nix
+    ./sober.nix
   ];
 }
