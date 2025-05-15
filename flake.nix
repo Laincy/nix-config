@@ -3,10 +3,11 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nixvim.url = "github:nix-community/nixvim";
     lanzaboote.url = "github:nix-community/lanzaboote";
     impermanence.url = "github:nix-community/impermanence";
     sops-nix.url = "github:Mic92/sops-nix";
+
+    nixCats.url = "github:BirdeeHub/nixCats-nvim";
 
     disko = {
       url = "github:nix-community/disko";
@@ -36,28 +37,12 @@
   outputs = {
     self,
     nixpkgs,
+    nixCats,
     ...
   } @ inputs: let
-    systems = [
-      "aarch64-linux"
-      "i686-linux"
-      "x86_64-linux"
-      "aarch64-darwin"
-      "x86_64-darwin"
-    ];
-
-    forAllSystems = nixpkgs.lib.genAttrs systems;
+    forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.platforms.all;
   in {
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
-
-    packages = forAllSystems (system: let
-      pkgs = nixpkgs.legacyPackages.${system};
-    in {
-      nvim = inputs.nixvim.legacyPackages.${system}.makeNixvimWithModule {
-        inherit pkgs;
-        module = ./nvim;
-      };
-    });
 
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -68,5 +53,14 @@
         ./nixos
       ];
     };
+
+    packages = forAllSystems (system: let
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [];
+        config = {};
+      };
+    in
+      nixCats.utils.mkAllWithDefault (import ./nvim (inputs // {inherit pkgs nixCats;})));
   };
 }
