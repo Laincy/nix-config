@@ -7,6 +7,12 @@ local lsp_on_attach = function(_, buffnr)
 		vim.keymap.set("n", keys, func, { buffer = buffnr, desc = desc })
 	end
 
+	vim.lsp.inlay_hint.enable()
+
+	vim.keymap.set("n", "<leader>i", function()
+		vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(buffnr), { buffnr })
+	end)
+
 	nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
 	nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 
@@ -60,4 +66,5 @@ lze.load({
 	},
 	{ import = "lsp.lua_ls" },
 	{ import = "lsp.nixd" },
+	{ import = "lsp.zls" },
 })

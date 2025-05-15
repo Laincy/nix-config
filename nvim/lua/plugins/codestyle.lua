@@ -12,6 +12,7 @@ return {
 				formatters_by_ft = {
 					lua = nixCats("lua") and { "stylua" } or nil,
 					nix = nixCats("nix") and { "alejandra" } or nil,
+					zig = nixCats("zig") and { "zig fmt" } or nil,
 				},
 			})
 

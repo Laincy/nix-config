@@ -18,6 +18,10 @@
     markdown = with pkgs; [
       markdownlint-cli2
     ];
+
+    zig = with pkgs; [
+      zls
+    ];
   };
 
   startupPlugins = {
@@ -36,6 +40,7 @@
       core = with pkgs.vimPlugins; [
         nvim-lspconfig
         nvim-treesitter.withAllGrammars
+        indent-blankline-nvim-lua
       ];
 
       # Plugins for managing codestyle
@@ -52,8 +57,15 @@
       ];
     };
 
-		markdown = with pkgs.vimPlugins; [
-			markview-nvim
-		];
+    cmp = with pkgs.vimPlugins; [
+      luasnip
+      blink-cmp
+      cmp-cmdline
+      blink-compat
+    ];
+
+    markdown = with pkgs.vimPlugins; [
+      markview-nvim
+    ];
   };
 }

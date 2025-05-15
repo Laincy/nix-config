@@ -20,7 +20,9 @@
     general = true;
     lua = true;
     nix = true;
+    cmp = true;
     markdown = true;
+    zig = true;
   };
   # anything else to pass and grab in lua with `nixCats.extra`
   extra = {};
