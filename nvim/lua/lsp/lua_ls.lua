@@ -14,6 +14,13 @@ return {
 					globals = { "nixCats", "vim" },
 					disable = { "missing-fields" },
 				},
+
+				inlay_hints = {
+					enabled = true,
+					show_type_hints = true,
+					show_parameter_hints = true,
+					show_other_hints = true,
+				},
 				telemetry = { enabled = false },
 			},
 		},

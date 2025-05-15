@@ -40,6 +40,7 @@ lze.load({
 	{
 		"markview.nvim",
 		for_cats = "markdown",
+		event = "DeferredUIEnter",
 
 		enabled = nixCats("markdown") or false,
 
@@ -55,7 +56,24 @@ lze.load({
 		end,
 	},
 
+	{
+		"indent-blankline.nvim",
+		for_cats = "general.core",
+		event = "DeferredUIEnter",
+
+		after = function()
+			require("ibl").setup({
+				scope = {
+					exclude = {
+						language = { "nix" },
+					},
+				},
+			})
+		end,
+	},
+
 	{ import = "plugins.telescope" },
 	{ import = "plugins.treesitter" },
 	{ import = "plugins.codestyle" },
+	{ import = "plugins.blink" },
 })
