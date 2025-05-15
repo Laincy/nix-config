@@ -18,7 +18,9 @@
   # and a set of categories that you want
   categories = {
     general = true;
-    test = true;
+    lua = true;
+    nix = true;
+    markdown = true;
   };
   # anything else to pass and grab in lua with `nixCats.extra`
   extra = {};
