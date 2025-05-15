@@ -1,9 +1,9 @@
-{config, ...}: {
+{...}: {
   programs.fuzzel = {
     enable = true;
     settings = {
       main = {
-        terminal = "${config.programs.alacritty.package}/bin/alacritty";
+        terminal = "footclient";
         layer = "overlay";
       };
 

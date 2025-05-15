@@ -20,7 +20,7 @@
         mode = {
           width = 2048;
           height = 1280;
-          refresh = 120.0;
+          refresh = 120.001;
         };
         scale = 1;
       };
@@ -51,6 +51,9 @@
         {
           command = ["${pkgs.xwayland-satellite}/bin/xwayland-satellite"];
         }
+        {
+          command = ["foot" "--server"];
+        }
       ];
 
       hotkey-overlay.skip-at-startup = true;
@@ -59,7 +62,7 @@
         brightness = "${pkgs.brightnessctl}/bin/brightnessctl";
       in
         with config.lib.niri.actions; {
-          "Mod+Q".action.spawn = "alacritty";
+          "Mod+Q".action.spawn = "footclient";
           "Mod+R".action.spawn = "fuzzel";
           "Mod+C".action = close-window;
           "Mod+Shift+E".action.quit.skip-confirmation = true;
