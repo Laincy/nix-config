@@ -1,7 +1,7 @@
 return {
 	"nixd",
-	enabled = nixCats("nix") or false,
 	lsp = {
+		enabled = nixCats("nix") or false,
 		filetypes = { "nix" },
 		settings = {
 			nixd = {

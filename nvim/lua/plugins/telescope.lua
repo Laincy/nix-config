@@ -39,6 +39,12 @@ return {
 					"%.lock",
 				},
 			},
+
+			pickers = {
+				colorscheme = {
+					enable_preview = true,
+				},
+			},
 		})
 	end,
 }
