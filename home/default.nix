@@ -4,9 +4,7 @@
   pkgs,
   self,
   ...
-}: let
-  nixvim = self.packages.${pkgs.system}.nvim;
-in {
+}: {
   imports = [
     inputs.impermanence.homeManagerModules.default
 
@@ -35,8 +33,8 @@ in {
       allowOther = true;
     };
 
-    packages = with pkgs; [nixvim shotwell];
+    packages = with pkgs; [(self.packages.${pkgs.system}.nvim) shotwell];
 
-    sessionVariables.EDITOR = "${nixvim}/bin/nvim";
+    sessionVariables.EDITOR = "nvim";
   };
 }
