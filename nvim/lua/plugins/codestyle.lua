@@ -33,12 +33,14 @@ return {
 		after = function()
 			local lint = require("lint")
 
-			local efm = "%f:%l:%c %m,%f:%l %m"
-
 			lint.linters_by_ft = {
 				markdown = nixCats("markdown") and {
 					"markdownlint-cli2",
 				} or nil,
+				gitcommit = { "commitlint" },
+				nix = nixCats("nix") and { "nix" } or nil,
+
+				rust = nixCats("rust") and { "clippy" } or nil,
 			}
 
 			vim.api.nvim_create_autocmd({ "BufWritePost" }, {

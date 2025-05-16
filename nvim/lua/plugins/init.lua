@@ -25,13 +25,15 @@ lze.load({
 		for_cat = "general.extra",
 		event = "DeferredUIEnter",
 
-		after = function(_)
+		after = function()
 			require("lualine").setup({
 				options = {
 					theme = "rose-pine",
-					component_seperators = "|",
-					section_seperators = "",
 					globalstatus = true,
+				},
+
+				sections = {
+					lualine_x = { "fileformat", "lsp_status", "filetype" },
 				},
 			})
 		end,
@@ -63,6 +65,10 @@ lze.load({
 
 		after = function()
 			require("ibl").setup({
+
+				indent = {
+					char = "│",
+				},
 				scope = {
 					exclude = {
 						language = { "nix" },
@@ -76,4 +82,5 @@ lze.load({
 	{ import = "plugins.treesitter" },
 	{ import = "plugins.codestyle" },
 	{ import = "plugins.blink" },
+	{ import = "plugins.trouble" },
 })

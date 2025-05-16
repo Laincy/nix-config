@@ -1,5 +1,7 @@
 vim.cmd.colorscheme("rose-pine")
 
+vim.diagnostic.config({ virtual_text = true })
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 

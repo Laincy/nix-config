@@ -1,8 +1,19 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  moonfly = pkgs.vimUtils.buildVimPlugin {
+    name = "moonfly";
+    src = pkgs.fetchFromGitHub {
+      owner = "bluz71";
+      repo = "vim-moonfly-colors";
+      rev = "164888b0140d6a4ba3f5ec5d760d46fb6a417d7a";
+      hash = "sha256-XlXgJgxlaOzBIaHUtCQrNJFSvOCxdqa4NnuDmaF2mzY=";
+    };
+  };
+in {
   lspsAndRuntimeDeps = {
     general = with pkgs; [
       ripgrep
       fd
+      commitlint-rs
     ];
 
     lua = with pkgs; [
@@ -22,15 +33,23 @@
     zig = with pkgs; [
       zls
     ];
+
+    rust = with pkgs; [
+      clippy
+      rust-analyzer
+      cargo
+    ];
   };
 
   startupPlugins = {
     general = with pkgs.vimPlugins; [
       lze
       lzextras
-      rose-pine
       plenary-nvim
       nvim-web-devicons
+
+      rose-pine
+      moonfly
     ];
   };
 
@@ -41,6 +60,7 @@
         nvim-lspconfig
         nvim-treesitter.withAllGrammars
         indent-blankline-nvim-lua
+        trouble-nvim
       ];
 
       # Plugins for managing codestyle
@@ -54,6 +74,7 @@
         telescope-nvim
         neo-tree-nvim
         lualine-nvim
+        lualine-lsp-progress
       ];
     };
 
