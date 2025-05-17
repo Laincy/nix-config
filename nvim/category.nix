@@ -27,7 +27,7 @@ in {
     ];
 
     markdown = with pkgs; [
-      markdownlint-cli2
+      markdownlint-cli
     ];
 
     zig = with pkgs; [

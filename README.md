@@ -1,5 +1,3 @@
-# Nix Config
-
 Collection of my NixOS configurations for my own devices. Not intended to be very portable or modular, though editing the `nixos` directory would be the place to start if you were trying to run this config on a different machine. Still trying to maintain git history of the config, even in the case that it is a complete refactor.
 
 ## File Structure
@@ -8,9 +6,9 @@ Collection of my NixOS configurations for my own devices. Not intended to be ver
 - `home`: Home-manager configurations
   - `desktop`: Desktop environment, currently [Niri](https://github.com/YaLTeR/niri)
   - `programs`: Program configurations
-    - `cli`: Command line programs (ie. git, ssh)
-    - `desktop`: Programs that run on a DE (ie. Firefox)
-    - `unfree`: Unfree programs
+  - `cli`: Command line programs (ie. git, ssh)
+  - `desktop`: Programs that run on a DE (ie. Firefox)
+  - `unfree`: Unfree programs
 - `nixos`: System level configurations
 - `nvim`: Neovim configured via [nixCats-nvim](https://github.com/BirdeeHub/nixCats-nvim).
 

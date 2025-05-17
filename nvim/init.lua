@@ -21,5 +21,7 @@ vim.opt.showmode = false
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+vim.g.markdown_recommended_style = 0
+
 require("lsp")
 require("plugins")

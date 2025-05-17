@@ -12,7 +12,9 @@ return {
 				formatters_by_ft = {
 					lua = nixCats("lua") and { "stylua" } or nil,
 					nix = nixCats("nix") and { "alejandra" } or nil,
-					zig = nixCats("zig") and { "zig fmt" } or nil,
+					zig = nixCats("zig") and { "zigfmt" } or nil,
+
+					markdown = nixCats("markdown") and { "markdownlint" } or nil,
 				},
 			})
 
@@ -34,16 +36,17 @@ return {
 			local lint = require("lint")
 
 			lint.linters_by_ft = {
-				markdown = nixCats("markdown") and {
-					"markdownlint-cli2",
-				} or nil,
+				markdown = nixCats("markdown") and { "markdownlint" } or nil,
+
 				gitcommit = { "commitlint" },
 				nix = nixCats("nix") and { "nix" } or nil,
 
 				rust = nixCats("rust") and { "clippy" } or nil,
 			}
 
-			vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+			lint.linters.markdownlint.args = { "--stdin", "--disable", "MD013", "MD041" }
+
+			vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter" }, {
 				callback = function()
 					require("lint").try_lint()
 				end,
