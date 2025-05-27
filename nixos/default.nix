@@ -96,6 +96,10 @@
     };
   };
 
+  services.upower = {
+
+  };
+
   nixpkgs.overlays = [inputs.niri.overlays.niri];
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [

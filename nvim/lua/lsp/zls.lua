@@ -5,7 +5,9 @@ return {
 		fileTypes = { "zig" },
 
 		settings = {
-			zls = {},
+			zls = {
+				zig_exe_path = nixCats.extra("zig-path"),
+			},
 		},
 	},
 }

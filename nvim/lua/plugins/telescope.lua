@@ -30,6 +30,12 @@ return {
 			mode = { "n" },
 			desc = "Find keybinds",
 		},
+		{
+			"<leader>fd",
+			":Telescope lsp_document_symbols<CR>",
+			mode = { "n" },
+			desc = "Jump in LSP",
+		},
 	},
 
 	after = function(_)

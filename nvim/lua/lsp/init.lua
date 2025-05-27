@@ -53,4 +53,5 @@ lze.load({
 	{ import = "lsp.nixd" },
 	{ import = "lsp.zls" },
 	{ import = "lsp.rust" },
+	{ import = "lsp.wgsl" },
 })

@@ -25,6 +25,15 @@
         scale = 1;
       };
 
+      outputs."HDMI-A-1" = {
+        mode = {
+          width = 1920;
+          height = 1080;
+          refresh = 120.000;
+        };
+        scale = 1;
+      };
+
       environment.DISPLAY = ":0";
 
       cursor = {

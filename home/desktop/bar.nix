@@ -7,7 +7,7 @@
         position = "top";
         height = 30;
         spacing = 10;
-        output = ["eDP-1"];
+        output = ["eDP-1" "HDMI-A-1"];
 
         modules-left = ["custom/nixos" "niri/workspaces" "niri/window"];
         #modules-center = ["mpd"];`
