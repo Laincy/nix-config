@@ -23,5 +23,12 @@ vim.opt.relativenumber = true
 
 vim.g.markdown_recommended_style = 0
 
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+  pattern = "*.wgsl",
+  callback = function()
+    vim.bo.filetype = "wgsl"
+  end,
+})
+
 require("lsp")
 require("plugins")

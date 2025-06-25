@@ -33,8 +33,16 @@
       allowOther = true;
     };
 
-    packages = with pkgs; [(self.packages.${pkgs.system}.nvim) shotwell];
+    packages = with pkgs; [
+      (self.packages.${pkgs.system}.nvim)
+      shotwell
+      jetbrains.idea-community-bin
+    ];
 
-    sessionVariables.EDITOR = "nvim";
+    sessionVariables = {
+      EDITOR = "nvim";
+      DISPLAY = ":0";
+      BROWSER = "firefox";
+    };
   };
 }

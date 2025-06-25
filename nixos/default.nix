@@ -24,6 +24,7 @@
     vim
     sbctl
     sops
+    via
   ];
 
   sops = {
@@ -97,7 +98,6 @@
   };
 
   services.upower = {
-
   };
 
   nixpkgs.overlays = [inputs.niri.overlays.niri];
@@ -128,6 +128,10 @@
       xdg-desktop-portal-gnome
     ];
   };
+
+  hardware.keyboard.qmk.enable = true;
+
+  services.udev.packages = [ pkgs.via ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
   system.stateVersion = "24.05";

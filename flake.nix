@@ -32,6 +32,8 @@
       url = "github:nix-community/nur-combined?dir=repos/rycee/pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    wgsl-analyzer.url = "github:wgsl-analyzer/wgsl-analyzer?ref=v0.9.8";
   };
 
   outputs = {
@@ -56,11 +58,7 @@
 
     packages = forAllSystems (system: let
       luaPath = "${./nvim}";
-      pkgs = import nixpkgs {
-        inherit system;
-        overlays = [];
-        config = [];
-      };
+      pkgs = import nixpkgs {inherit system;};
       categoryDefinitions = {pkgs, ...}: {
         lspsAndRuntimeDeps = {
           general = with pkgs; [
@@ -90,8 +88,8 @@
 
           rust = with pkgs; [
             clippy
+            inputs.wgsl-analyzer.packages.${system}.default
             rust-analyzer
-            wgsl-analyzer
             cargo
           ];
         };
