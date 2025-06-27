@@ -85,22 +85,22 @@
 
   services.pipewire = {
     enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
     jack.enable = true;
   };
 
   services.greetd = {
     enable = true;
     settings.default_session = {
-      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd ${pkgs.niri-stable}/bin/niri-session";
+      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd ${inputs.hyprland.packages."${pkgs.system}".hyprland}/bin/hyprland";
     };
   };
 
   services.upower = {
+    enable = true;
   };
 
-  nixpkgs.overlays = [inputs.niri.overlays.niri];
+  programs.steam.enable = true;
+
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
       "nvidia-x11"
@@ -109,6 +109,12 @@
       "google-chrome"
       "obsidian"
       "spotify"
+      "via"
+
+      "steam"
+      "steam-original"
+      "steam-unwrapped"
+      "steam-run"
     ];
 
   services.flatpak.enable = true;
@@ -131,7 +137,7 @@
 
   hardware.keyboard.qmk.enable = true;
 
-  services.udev.packages = [ pkgs.via ];
+  services.udev.packages = [pkgs.via];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
   system.stateVersion = "24.05";

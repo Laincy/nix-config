@@ -32,13 +32,13 @@
     settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
   };
 
-  home.pointerCursor = {
-    package = pkgs.rose-pine-cursor;
-    name = "BreezeX-RosePine-Linux";
-
-    x11.enable = true;
-    gtk.enable = true;
-
-    size = 24;
-  };
+  # home.pointerCursor = {
+  #   package = pkgs.rose-pine-cursor;
+  #   name = "BreezeX-RosePine-Linux";
+  #
+  #   x11.enable = true;
+  #   gtk.enable = true;
+  #
+  #   size = 24;
+  # };
 }

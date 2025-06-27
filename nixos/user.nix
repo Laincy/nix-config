@@ -33,7 +33,7 @@
   };
 
   home-manager = {
-    useGlobalPkgs = true;
+    useGlobalPkgs = false;
     extraSpecialArgs = {inherit inputs self;};
     users.laincy = import ../home;
   };

@@ -19,10 +19,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    niri = {
-      url = "github:sodiboo/niri-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    hyprland.url = "github:hyprwm/hyprland";
+    hyprpanel.url = "github:Jas-SinghFSU/hyprpanel";
 
     nixcord.url = "github:kaylorben/nixcord";
 
@@ -51,7 +49,6 @@
       specialArgs = {inherit inputs self;};
       modules = [
         inputs.sops-nix.nixosModules.sops
-        inputs.niri.nixosModules.niri
         ./nixos
       ];
     };

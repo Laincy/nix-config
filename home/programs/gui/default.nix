@@ -4,5 +4,6 @@
     ./foot.nix
     ./fuzzel.nix
     ./sober.nix
+    ./tofi.nix
   ];
 }
