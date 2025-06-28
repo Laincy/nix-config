@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   imports = [
+    ./fish.nix
     ./git.nix
-    ./nushell.nix
     ./ssh.nix
     ./tmux.nix
   ];

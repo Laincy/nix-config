@@ -1,14 +1,10 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   brightness = "${pkgs.brightnessctl}/bin/brightnessctl";
   av_device = "@DEFAULT_AUDIO_SINK@";
 in {
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
-    "$terminal" = "footclient";
+    "$terminal" = "alacritty";
     "$browser" = "firefox";
     bind = [
       "$mod, q, exec, $terminal"

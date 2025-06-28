@@ -1,5 +1,4 @@
 {
-  config,
   inputs,
   pkgs,
   ...
@@ -10,15 +9,6 @@ in {
     ./binds.nix
     ./panel.nix
   ];
-
-  home.pointerCursor = {
-    package = pkgs.rose-pine-hyprcursor;
-    name = "rose-pine-hyprcursor";
-    size = 24;
-
-    gtk.enable = true;
-    x11.enable = true;
-  };
 
   xdg.portal = {
     enable = true;
@@ -61,7 +51,7 @@ in {
       decoration.rounding = 0;
 
       exec-once = [
-        "foot --server"
+        "spotify_player -d"
       ];
     };
   };

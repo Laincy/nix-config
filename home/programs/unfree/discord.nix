@@ -10,7 +10,7 @@
 
   programs.nixcord = {
     enable = true;
-    discord.openASAR.enable = true;
+    discord.openASAR.enable = false;
     config = {
       useQuickCss = false;
       frameless = true;

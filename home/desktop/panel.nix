@@ -1,5 +1,4 @@
 {
-  config,
   inputs,
   pkgs,
   ...
@@ -16,7 +15,7 @@
     hyprland.enable = true;
 
     settings = {
-      terminal = "footclient";
+      terminal = "alacritty";
       theme.name = "rose_pine";
 
       notifications.position = "bottom right";
@@ -45,7 +44,7 @@
                 command = "firefox";
                 tooltip = "Firefox";
               };
-              shortcut2.command = "spotify";
+              shortcut2.command = "alacritty -e spotify_player";
               shortcut4.command = "tofi-drun";
             };
           };

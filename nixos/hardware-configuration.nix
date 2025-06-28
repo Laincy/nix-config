@@ -59,5 +59,4 @@
   services.xserver.videoDrivers = ["nvidia"];
 
   disko.devices.disk.main.device = "/dev/nvme0n1";
-
 }

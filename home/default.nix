@@ -27,29 +27,38 @@
         "Programming"
         ".gnupg"
 
+        ".local/share/flatpak/app"
+
         ".cache/shotwell"
         ".local/share/shotwell"
-        ".local/share/steam"
-        ".steam"
+        # ".local/share/Steam"
+        # ".steam"
+
+        ".config/spotify-player"
+        ".cache/spotify-player"
       ];
+
       allowOther = true;
     };
 
     packages = with pkgs; [
       (self.packages.${pkgs.system}.nvim)
+      nurl
+      neofetch
+      door-knocker
       shotwell
-      helvum
+      spotify-player
     ];
 
     sessionVariables = {
       EDITOR = "nvim";
-      DISPLAY = ":0";
       BROWSER = "firefox";
     };
   };
 
   xdg.mimeApps = {
     enable = true;
+
     defaultApplications = {
       "default-web-browser" = ["firefox.desktop"];
       "text/html" = ["firefox.desktop"];
