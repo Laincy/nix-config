@@ -75,6 +75,7 @@ in {
         neo-tree-nvim
         lualine-nvim
         lualine-lsp-progress
+        presence-nvim
       ];
     };
 

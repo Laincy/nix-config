@@ -78,6 +78,15 @@ lze.load({
 		end,
 	},
 
+	{
+		"presence.nvim",
+		for_cats = "gen$ral.extra",
+		event = "DeferredUIEnter",
+		after = function()
+			require("presence").setup()
+		end,
+	},
+
 	{ import = "plugins.telescope" },
 	{ import = "plugins.treesitter" },
 	{ import = "plugins.codestyle" },

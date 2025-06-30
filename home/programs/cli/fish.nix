@@ -3,6 +3,10 @@
     fish = {
       enable = true;
 
+      shellInit = ''
+        set -x GPG_TTY (tty)
+      '';
+
       interactiveShellInit = ''
         set fish_greeting # Disable greeting
       '';

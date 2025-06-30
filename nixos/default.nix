@@ -7,14 +7,14 @@
   hyprland_pkgs = inputs.hyprland.packages.${pkgs.system};
 in {
   imports = [
-    ./disk-config.nix
-    ./hardware-configuration.nix
-    ./localization.nix
-    ./persist.nix
-    ./user.nix
+    ./hardware
 
-    # May need to be removed on first install
-    ./secureboot.nix
+    # May have to remove on first install
+    ./secure-boot.nix
+
+    ./sops.nix
+    ./unfree.nix
+    ./user.nix
   ];
 
   networking = {
@@ -28,30 +28,18 @@ in {
     sbctl
     sops
     helvum
-    via
     btop
+    vial
 
     hyprland_pkgs.hyprland
   ];
 
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [
-      "nvidia-x11"
-      "nvidia-settings"
-      "via"
-      "steam"
-      "steam-original"
-      "steam-unwrapped"
-      "steam-run"
-    ];
-
-  sops = {
-    defaultSopsFormat = "yaml";
-    defaultSopsFile = ./secrets.yaml;
-    secrets = {
-      user-password.neededForUsers = true;
-      user-ssh-key.owner = "laincy";
-      git-ssh-key.owner = "laincy";
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd Hyprland";
+      };
     };
   };
 
@@ -60,52 +48,7 @@ in {
     systemd-boot.enable = lib.mkDefault true;
   };
 
-  security.rtkit.enable = true;
-
-  services = {
-    openssh = {
-      enable = true;
-      settings = {
-        PasswordAuthentication = false;
-        PermitRootLogin = "no";
-      };
-
-      hostKeys = [
-        {
-          path = "/persist/etc/ssh/ssh_host_ed25519_key";
-          type = "ed25519";
-        }
-      ];
-    };
-
-    upower.enable = true;
-
-    pipewire = {
-      enable = true;
-      pulse.enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-    };
-
-    greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd Hyprland";
-        };
-      };
-    };
-
-    flatpak.enable = true;
-
-    power-profiles-daemon.enable = true;
-  };
-
-  hardware.keyboard.qmk.enable = true;
-
-  programs.steam = {
-    enable = true;
-  };
+  services.flatpak.enable = true;
 
   xdg.portal = {
     enable = true;
@@ -118,6 +61,29 @@ in {
       xdg-desktop-portal-gtk
       hyprland_pkgs.xdg-desktop-portal-hyprland
     ];
+  };
+
+  programs.steam.enable = true;
+
+  time.timeZone = "America/New_York";
+
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_US.UTF-8";
+    LC_IDENTIFICATION = "en_US.UTF-8";
+    LC_MEASUREMENT = "en_US.UTF-8";
+    LC_MONETARY = "en_US.UTF-8";
+    LC_NAME = "en_US.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
+    LC_PAPER = "en_US.UTF-8";
+    LC_TELEPHONE = "en_US.UTF-8";
+    LC_TIME = "en_US.UTF-8";
+  };
+
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
   };
 
   nix.settings.experimental-features = ["nix-command" "flakes"];

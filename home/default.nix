@@ -27,12 +27,17 @@
         "Programming"
         ".gnupg"
 
-        ".local/share/flatpak/app"
-
         ".cache/shotwell"
         ".local/share/shotwell"
-        # ".local/share/Steam"
-        # ".steam"
+
+        {
+          directory = ".local/share/Steam";
+          method = "symlink";
+        }
+        {
+          directory = ".steam";
+          method = "symlink";
+        }
 
         ".config/spotify-player"
         ".cache/spotify-player"

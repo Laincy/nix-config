@@ -11,7 +11,7 @@ return {
 
 				options = {
 					nixos = { expr = nixCats.extra("nixdExtras.nixos_options") },
-					["home-manager"] = { expr = nixCats.extra("nixdExtras.home_manager_options") },
+					--["home-manager"] = { expr = nixCats.extra("nixdExtras.home_manager_options") },
 				},
 
 				formatting = {
