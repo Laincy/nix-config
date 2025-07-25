@@ -5,7 +5,24 @@ return {
 		filetypes = { "rust" },
 
 		settings = {
-			["rust-analyzer"] = {},
+			["rust-analyzer"] = {
+				imports = {
+					granularity = {
+						group = "module",
+					},
+					prefix = "self",
+				},
+				cargo = {
+
+					allTargets = false,
+					buildScripts = {
+						enable = true,
+					},
+				},
+				procMacro = {
+					enable = true,
+				},
+			},
 		},
 	},
 }

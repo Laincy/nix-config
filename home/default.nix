@@ -24,7 +24,10 @@
         "Documents"
         "Downloads"
         "Pictures"
-        "Programming"
+        {
+          directory = "Programming";
+          method = "symlink";
+        }
         ".gnupg"
 
         ".cache/shotwell"

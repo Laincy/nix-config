@@ -17,6 +17,17 @@
           src = pkgs.fishPlugins.grc.src;
         }
       ];
+
+      shellAbbrs = {
+        gad = "git add";
+        nrs = "sudo nixos-rebuild switch --flake .";
+        nrb = "sudo nixos-rebuild boot --flake .";
+        nds = "nix develop -c fish";
+      };
+
+      shellAliases = {
+        lsa = "ls -a";
+      };
     };
 
     starship = {
