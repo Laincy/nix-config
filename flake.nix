@@ -20,7 +20,6 @@
     };
 
     hyprland.url = "github:hyprwm/hyprland";
-    hyprpanel.url = "github:Jas-SinghFSU/hyprpanel";
 
     nixcord.url = "github:kaylorben/nixcord";
 

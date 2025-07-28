@@ -2,6 +2,7 @@
   imports = [
     ./alacritty.nix
     ./firefox.nix
+    ./prism.nix
     ./tofi.nix
   ];
 
