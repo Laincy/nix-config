@@ -50,6 +50,6 @@
           };
         };
       }
-      // lib.importJSON "${pkgs.hyprpanel}/share/themes/rose_pine_split.json";
+      // lib.importJSON "${pkgs.hyprpanel}/share/themes/rose_pine.json";
   };
 }
