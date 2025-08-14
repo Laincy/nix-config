@@ -48,6 +48,8 @@ in {
         border_size = 3;
       };
 
+      animations.enabled = false;
+
       decoration.rounding = 0;
 
       exec-once = [

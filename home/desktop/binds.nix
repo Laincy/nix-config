@@ -60,7 +60,7 @@ in {
     ];
 
     bindi = [
-      ", mouse:276, pass, class:^(discord)$"
+      ", Control_R, pass, class:^(discord)$"
     ];
 
     bindr = [

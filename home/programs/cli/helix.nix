@@ -11,6 +11,8 @@
       marksman
     ];
 
+    package = pkgs.evil-helix;
+
     settings = {
       theme = "rose_pine";
 

@@ -6,22 +6,22 @@ return {
 
 		settings = {
 			["rust-analyzer"] = {
-				imports = {
-					granularity = {
-						group = "module",
-					},
-					prefix = "self",
-				},
-				cargo = {
-
-					allTargets = false,
-					buildScripts = {
-						enable = true,
-					},
-				},
-				procMacro = {
-					enable = true,
-				},
+				-- imports = {
+				-- 	granularity = {
+				-- 		group = "module",
+				-- 	},
+				-- 	prefix = "self",
+				-- },
+				-- cargo = {
+				--
+				-- 	allTargets = false,
+				-- 	buildScripts = {
+				-- 		enable = true,
+				-- 	},
+				-- },
+				-- procMacro = {
+				-- 	enable = true,
+				-- },
 			},
 		},
 	},

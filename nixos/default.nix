@@ -29,7 +29,7 @@ in {
     sops
     helvum
     btop
-    vial
+    via
 
     hyprland_pkgs.hyprland
   ];
@@ -88,4 +88,26 @@ in {
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
   system.stateVersion = "24.05";
+
+  # TODO: Remove
+  services.postgresql = {
+    enable = true;
+    ensureDatabases = ["kromer"];
+    authentication = pkgs.lib.mkOverride 10 ''
+      #type database  DBuser  auth-method
+      local all       all     trust
+
+      #ipv4
+      host  all      all     127.0.0.1/32   trust
+
+      # ipv6
+      host all       all     ::1/128        trust
+    '';
+
+    initialScript = pkgs.writeText "backend-initScript" ''
+      CREATE ROLE service WITH LOGIN PASSWORD 'password' CREATEDB;
+      CREATE DATABASE kromer;
+      GRANT ALL PRIVILEGES ON DATABASE kromer TO service;
+    '';
+  };
 }
