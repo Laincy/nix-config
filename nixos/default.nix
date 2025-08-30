@@ -30,6 +30,8 @@ in {
     helvum
     btop
     via
+    podman-tui
+    podman-compose
 
     hyprland_pkgs.hyprland
   ];
@@ -38,7 +40,7 @@ in {
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd Hyprland";
+        command = "${pkgs.tuigreet}/bin/tuigreet --cmd Hyprland";
       };
     };
   };
@@ -89,25 +91,20 @@ in {
   nix.settings.experimental-features = ["nix-command" "flakes"];
   system.stateVersion = "24.05";
 
-  # TODO: Remove
-  services.postgresql = {
-    enable = true;
-    ensureDatabases = ["kromer"];
-    authentication = pkgs.lib.mkOverride 10 ''
-      #type database  DBuser  auth-method
-      local all       all     trust
+  virtualisation = {
+    containers = {
+      enable = true;
+      # registries.search = [
+      #   "docker.io"
+      #   "quay.io"
+      # ];
+    };
 
-      #ipv4
-      host  all      all     127.0.0.1/32   trust
-
-      # ipv6
-      host all       all     ::1/128        trust
-    '';
-
-    initialScript = pkgs.writeText "backend-initScript" ''
-      CREATE ROLE service WITH LOGIN PASSWORD 'password' CREATEDB;
-      CREATE DATABASE kromer;
-      GRANT ALL PRIVILEGES ON DATABASE kromer TO service;
-    '';
+    oci-containers.backend = "podman";
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
   };
 }

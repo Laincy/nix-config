@@ -18,6 +18,7 @@
         "networkmanager"
         "wheel"
         "pipewire"
+        "podman"
       ];
 
       hashedPasswordFile = config.sops.secrets.user-password.path;

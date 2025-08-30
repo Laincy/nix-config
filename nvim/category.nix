@@ -39,6 +39,16 @@ in {
       rust-analyzer
       cargo
     ];
+
+    sql = with pkgs; [
+      sql-formatter
+      sqls
+    ];
+
+    docker = with pkgs; [
+      docker-language-server
+      dockerfmt
+    ];
   };
 
   startupPlugins = {

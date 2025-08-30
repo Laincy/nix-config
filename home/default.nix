@@ -44,6 +44,13 @@
 
         ".config/spotify-player"
         ".cache/spotify-player"
+
+        {
+          directory = ".local/share/containers";
+          method = "symlink";
+        }
+
+        # ".local/share/containers"
       ];
 
       allowOther = true;

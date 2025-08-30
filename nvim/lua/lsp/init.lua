@@ -53,4 +53,7 @@ lze.load({
 	{ import = "lsp.nixd" },
 	{ import = "lsp.zls" },
 	{ import = "lsp.rust" },
+	{ import = "lsp.sql" },
+	{ import = "lsp.docker" },
+	-- { import = "lsp.docker_compose" },
 })

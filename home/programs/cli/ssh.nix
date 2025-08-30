@@ -7,7 +7,7 @@
 
   programs.ssh = {
     enable = true;
-    userKnownHostsFile = "${config.home.homeDirectory}/.ssh/known_hosts.d/hosts";
+    matchBlocks.${config.home.username}.userKnownHostsFile = "${config.home.homeDirectory}/.ssh/known_hosts.d/hosts";
     extraConfig = "identityFile /run/secrets/user-ssh-key";
   };
 }

@@ -12,7 +12,7 @@ lze.load({
 			require("neo-tree").setup({
 				close_if_last_window = true,
 				filesystem = {
-					filtered_items = { hide_dotfiles = false, never_show = { ".git" } },
+					filtered_items = { hide_dotfiles = true, never_show = { ".git" } },
 				},
 
 				window = { width = 30 },

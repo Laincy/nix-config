@@ -24,6 +24,8 @@
     markdown = true;
     zig = true;
     rust = true;
+    sql = true;
+    docker = true;
   };
   # anything else to pass and grab in lua with `nixCats.extra`
   extra = {};

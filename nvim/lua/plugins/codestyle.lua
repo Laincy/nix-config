@@ -13,6 +13,7 @@ return {
 					lua = nixCats("lua") and { "stylua" } or nil,
 					nix = nixCats("nix") and { "alejandra" } or nil,
 					zig = nixCats("zig") and { "zigfmt" } or nil,
+					sql = nixCats("sql") and { "sql_formatter" } or nil,
 
 					markdown = nixCats("markdown") and { "markdownlint" } or nil,
 				},
