@@ -12,6 +12,7 @@
   services = {
     upower.enable = true;
     power-profiles-daemon.enable = true;
+    thermald.enable = true;
 
     pipewire = {
       enable = true;

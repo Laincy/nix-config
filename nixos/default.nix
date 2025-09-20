@@ -91,6 +91,8 @@ in {
   nix.settings.experimental-features = ["nix-command" "flakes"];
   system.stateVersion = "24.05";
 
+  programs.virt-manager.enable = true;
+
   virtualisation = {
     containers = {
       enable = true;
@@ -106,5 +108,7 @@ in {
       dockerCompat = true;
       defaultNetwork.settings.dns_enabled = true;
     };
+    libvirtd.enable = true;
+    spiceUSBRedirection.enable = true;
   };
 }

@@ -19,6 +19,7 @@
         "wheel"
         "pipewire"
         "podman"
+        "libvirtd"
       ];
 
       hashedPasswordFile = config.sops.secrets.user-password.path;

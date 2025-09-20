@@ -31,7 +31,7 @@ in {
     ];
 
     zig = with pkgs; [
-      zls
+      zls_0_15
     ];
 
     rust = with pkgs; [
