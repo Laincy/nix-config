@@ -55,5 +55,6 @@ lze.load({
 	{ import = "lsp.rust" },
 	{ import = "lsp.sql" },
 	{ import = "lsp.docker" },
+  { import = "lsp.clangd" }
 	-- { import = "lsp.docker_compose" },
 })

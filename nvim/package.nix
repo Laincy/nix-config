@@ -26,6 +26,7 @@
     rust = true;
     sql = true;
     docker = true;
+    c_lang = true;
   };
   # anything else to pass and grab in lua with `nixCats.extra`
   extra = {};

@@ -29,7 +29,9 @@ in {
     sops
     helvum
     btop
-    via
+
+    vial
+
     podman-tui
     podman-compose
 

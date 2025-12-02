@@ -33,10 +33,15 @@
         ".cache/shotwell"
         ".local/share/shotwell"
 
+        ".local/share/Bay 12 Games"
+
+        ".factorio"
+
         {
           directory = ".local/share/Steam";
           method = "symlink";
         }
+
         {
           directory = ".steam";
           method = "symlink";

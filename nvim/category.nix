@@ -49,6 +49,10 @@ in {
       docker-language-server
       dockerfmt
     ];
+
+    c_lang = with pkgs; [
+      clang-tools
+    ];
   };
 
   startupPlugins = {

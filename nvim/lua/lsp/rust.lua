@@ -15,9 +15,9 @@ return {
 				-- cargo = {
 				--
 				-- 	allTargets = false,
-				-- 	buildScripts = {
-				-- 		enable = true,
-				-- 	},
+					buildScripts = {
+						enable = true,
+					},
 				-- },
 				-- procMacro = {
 				-- 	enable = true,

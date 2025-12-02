@@ -10,46 +10,63 @@
 
     settings =
       {
-        terminal = "alacritty";
-        theme.name = "gruvbox";
-
-        notifications.position = "bottom right";
-        layout.bar.layouts."*" = {
-          left = ["dashboard" "workspaces"];
-          middle = ["media"];
-          right = ["volume" "network" "bluetooth" "battery" "systray" "clock" "notifications"];
+        theme.font = {
+          name = "AurulentSansM Nerd Font";
+          label = "AurulentSansM Nerd Font Bold";
+          weight = 800;
         };
-
         bar = {
-          workspaces.show_numbered = true;
+          layouts."*" = {
+            left = [
+              "dashboard"
+              "workspaces"
+              "windowtitle"
+              "systray"
+            ];
+            middle = ["media"];
+            right = [
+              "volume"
+              "network"
+              "battery"
+              "clock"
+              "notifications"
+            ];
+          };
           launcher.autoDetectIcon = true;
+
+          workspaces = {
+            show_numbered = true;
+            numbered_active_indicator = "underline";
+          };
+
+          network.truncation_size = 10;
+
           clock.format = "%a %b %d %I:%M %p";
-          media.show_active_only = true;
-          network.truncation = false;
-        };
-        menus = {
-          clock = {weather.enabled = false;};
-          dashboard = {
-            controls.enabled = true;
-            directories.enabled = false;
-            shortcuts = {
-              left = {
-                shortcut1 = {
-                  icon = "";
-                  command = "firefox";
-                  tooltip = "Firefox";
-                };
-                shortcut2.command = "alacritty -e spotify_player";
-                shortcut4.command = "tofi-drun";
-              };
-            };
-            powermenu.avatar = {
-              name = "Laincy";
-              image = "${../../assets/bristol.jpg}";
-            };
+
+          media = {
+            format = "{title}";
+            show_active_only = true;
           };
         };
+        menus = {
+          clock.weather.enabled = false;
+
+          dashboard = {
+            powermenu = {
+              avatar.name = "Laincy";
+              avatar.image = ../../assets/bristol.jpg;
+            };
+            directories.enabled = false;
+
+            shortcuts.left.shortcut2.command = "alacritty -e spotify_player";
+            shortcuts.left.shortcut4.command = "tofi-drun";
+          };
+        };
+        notifications = {
+          position = "bottom left";
+          active_monitor = false;
+        };
       }
-      // lib.importJSON "${pkgs.hyprpanel}/share/themes/rose_pine.json";
+      // lib.importJSON "${pkgs.hyprpanel}/share/themes/rose_pine_split.json";
   };
 }

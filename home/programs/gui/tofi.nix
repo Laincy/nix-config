@@ -2,6 +2,8 @@
   programs.tofi = {
     enable = true;
     settings = {
+      terminal = "alacritty";
+
       drun-launch = true;
       ascii-input = true;
       width = "30%";
