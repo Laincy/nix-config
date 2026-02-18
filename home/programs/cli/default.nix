@@ -10,6 +10,7 @@
   home.packages = with pkgs; [
     glow
     tree
-    du-dust
+    dust
+    lsof
   ];
 }

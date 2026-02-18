@@ -22,6 +22,6 @@
   };
 
   wayland.windowManager.hyprland.settings.layerrule = [
-    "noanim, ^(launcher)$"
+    "match:class ^(launcher)$, no_anim true"
   ];
 }

@@ -5,7 +5,9 @@ return {
 		fileTypes = { "zig" },
 
 		settings = {
-			zls = {},
+			zls = {
+				enable_build_on_save = true,
+			},
 		},
 	},
 }

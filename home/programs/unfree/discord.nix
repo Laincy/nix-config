@@ -29,7 +29,6 @@
         betterGifPicker.enable = true;
         betterRoleDot.enable = true;
         betterSettings.enable = true;
-        clearURLs.enable = true;
         colorSighted.enable = true;
         favoriteEmojiFirst.enable = true;
         forceOwnerCrown.enable = true;
@@ -48,13 +47,12 @@
           ignoreSelf = true;
         };
 
-        moreCommands.enable = true;
-        mutualGroupDMs.enable = true;
         newGuildSettings = {
           enable = true;
           guild = false;
           everyone = false;
-          messages = "only@Mentions";
+          messages = 1;
+          showAllChannels = true;
         };
 
         noF1.enable = true;

@@ -34,6 +34,7 @@
         ".local/share/shotwell"
 
         ".local/share/Bay 12 Games"
+        ".local/share/Terraria"
 
         ".factorio"
 

@@ -23,6 +23,7 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
+    qmk
     git
     vim
     sbctl
@@ -30,7 +31,7 @@ in {
     helvum
     btop
 
-    vial
+    via
 
     podman-tui
     podman-compose
@@ -53,6 +54,7 @@ in {
   };
 
   services.flatpak.enable = true;
+  services.udev.packages = [pkgs.via];
 
   xdg.portal = {
     enable = true;
@@ -89,6 +91,8 @@ in {
     layout = "us";
     variant = "";
   };
+
+  programs.nix-ld.enable = true;
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
   system.stateVersion = "24.05";

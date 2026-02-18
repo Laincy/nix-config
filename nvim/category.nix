@@ -73,7 +73,7 @@ in {
       core = with pkgs.vimPlugins; [
         nvim-lspconfig
         nvim-treesitter.withAllGrammars
-        indent-blankline-nvim-lua
+        indent-blankline-nvim
         trouble-nvim
       ];
 

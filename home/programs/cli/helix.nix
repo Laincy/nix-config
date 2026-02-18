@@ -7,7 +7,7 @@
       rust-analyzer
       zls
       lua-language-server
-      taplo-lsp
+      taplo
       marksman
     ];
 
