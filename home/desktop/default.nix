@@ -62,7 +62,13 @@ in {
     enable = true;
     settings = {
       preload = ["${../../assets/outing.jpg}"];
-      wallpaper = [",${../../assets/outing.jpg}"];
+      wallpaper = [
+        {
+          monitor = "";
+          path = "${../../assets/outing.jpg}";
+        }
+      ];
+
       splash = false;
     };
   };
